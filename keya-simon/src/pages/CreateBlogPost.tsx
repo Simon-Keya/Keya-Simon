@@ -1,50 +1,81 @@
-import React from 'react';
-import { Container, Form, FormGroup, Label, Input, Button } from '@material-tailwind/react';
-import { useHistory } from 'react-router-dom';
-import { useBlogDispatch, CREATE_POST } from '../store/actions/blogActions';
+import React, { useState } from 'react';
 
 const CreateBlogPost = () => {
-  const dispatch = useBlogDispatch();
-  const history = useHistory();
-  const [title, setTitle] = React.useState('');
-  const [content, setContent] = React.useState('');
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [image, setImage] = useState<File | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setImage(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch({ type: CREATE_POST, payload: { title, content } });
-    history.push('/');
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('content', content);
+    if (image) {
+      formData.append('image', image);
+    }
+
+    try {
+      // Make API request to create a new blog post
+      const response = await fetch('https://api.example.com/blog/posts', {
+        method: 'POST',
+        body: formData,
+      });
+      if (response.ok) {
+        console.log('Blog post created successfully');
+        // Redirect to the blog post detail page after creation
+        window.location.href = '/blog-post-detail';
+      } else {
+        console.error('Failed to create blog post');
+      }
+    } catch (error) {
+      console.error('Error creating blog post:', error);
+    }
   };
 
   return (
-    <Container>
-      <Typography variant="h1" className="mt-16 mb-8 text-4xl font-bold">
-        Create a New Blog Post
-      </Typography><Form onSubmit={handleSubmit}>
-        <FormGroup>
-          <Label htmlFor="title">Title</Label>
-          <Input
-            id="title"
+    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+      <h2 className="text-2xl font-semibold mb-4">Create Blog Post</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label htmlFor="title" className="block text-gray-700">Title</label>
+          <input
             type="text"
+            id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            className="mt-1 p-2 w-full border rounded-md"
             required
           />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="content">Content</Label>
-          <Input
+        </div>
+        <div className="mb-4">
+          <label htmlFor="content" className="block text-gray-700">Content</label>
+          <textarea
             id="content"
-            type="textarea"
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            className="mt-1 p-2 w-full border rounded-md"
             required
           />
-        </FormGroup>
-        <Button type="submit" className="mt-4">
-          Create Post
-        </Button>
-      </Form>
-    </Container>
+        </div>
+        <div className="mb-4">
+          <label htmlFor="image" className="block text-gray-700">Image</label>
+          <input
+            type="file"
+            id="image"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="mt-1 p-2 w-full border rounded-md"
+          />
+        </div>
+        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Create Post</button>
+      </form>
+    </div>
   );
 };
 

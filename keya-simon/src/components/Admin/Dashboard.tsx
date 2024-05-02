@@ -1,60 +1,40 @@
-import React from 'react';
-import { Container, Form, FormGroup, Label, Input, Button } from '@material-tailwind/react';
-import { useAuthDispatch, REGISTER } from '../store/actions/authActions';
+import React, { useState, useEffect } from 'react';
 
-const RegisterForm = () => {
-  const dispatch = useAuthDispatch();
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+const Dashboard = () => {
+  const [userData, setUserData] = useState([]);
+  const [postCount, setPostCount] = useState(0);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    dispatch({ type: REGISTER, payload: { name, email, password } });
-  };
+  useEffect(() => {
+    // Fetch user data from an online repository
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(data => setUserData(data))
+      .catch(error => console.error('Error fetching user data:', error));
+
+    // Fetch post count from an online repository
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(data => setPostCount(data.length))
+      .catch(error => console.error('Error fetching post count:', error));
+  }, []);
 
   return (
-    <Container>
-      <Typography variant="h1" className="mt-16 mb-8 text-4xl font-bold">
-        Register
-      </Typography>
-      <Form onSubmit={handleSubmit}>
-        <FormGroup>
-          <Label htmlFor="name">Name</Label>
-          <Input
-            id="name"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="email">Email</Label>
-          <Input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="password">Password</Label>
-          <Input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </FormGroup>
-        <Button type="submit" className="mt-4">
-          Register
-        </Button>
-      </Form>
-    </Container>
+    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <h2 className="text-xl font-bold mb-4">Admin Dashboard</h2>
+      <div className="mb-4">
+        <h3 className="text-lg font-semibold mb-2">User Management</h3>
+        <ul className="list-disc ml-8">
+          {userData.map(user => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 className="text-lg font-semibold mb-2">Post Management</h3>
+        <p>Total Posts: {postCount}</p>
+      </div>
+    </div>
   );
 };
 
-export default RegisterForm;
+export default Dashboard;

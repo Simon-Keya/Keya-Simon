@@ -1,23 +1,38 @@
 import React from 'react';
-import { Container, Typography, Card, CardHeader, CardBody } from '@material-tailwind/react';
 
-const BlogPost = ({ title, content, author }: { title: string; content:string; author: string }) => {
+const BlogPost = () => {
+  const posts = [
+    {
+      type: 'picture',
+      title: 'Beautiful Landscape',
+      imageUrl: 'https://via.placeholder.com/400',
+    },
+    {
+      type: 'quote',
+      author: 'John Doe',
+      quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    },
+  ];
+
   return (
-    <Container>
-      <Card className="w-full max-w-sm mb-16">
-        <CardHeader color="blue-gray" className="text-center">
-          <Typography variant="h5" color="white" className="mb-2">
-            {title}
-          </Typography>
-          <Typography variant="lead" color="white" className="opacity-70">
-            {author}
-          </Typography>
-        </CardHeader>
-        <CardBody>
-          <Typography>{content}</Typography>
-        </CardBody>
-      </Card>
-    </Container>
+    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <h2 className="text-xl font-bold mb-4">Blog Posts</h2>
+      {posts.map((post, index) => (
+        <div key={index} className="mb-4">
+          {post.type === 'picture' ? (
+            <div>
+              <h3 className="text-lg font-semibold mb-2">{post.title}</h3>
+              <img src={post.imageUrl} alt={post.title} className="w-full h-auto" />
+            </div>
+          ) : (
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Quote by {post.author}</h3>
+              <p className="italic text-gray-700">"{post.quote}"</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
   );
 };
 

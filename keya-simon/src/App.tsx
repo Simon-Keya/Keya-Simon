@@ -1,42 +1,46 @@
+// App.tsx
+
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './store/store';
-import { Header, Footer, Sidebar } from './components/Layout';
-import {
-  Home,
-  Login,
-  Register,
-  Profile,
-  BlogPostDetail,
-  CreateBlogPost,
-  AdminDashboard,
-  UserManagement,
-  PostManagement,
-} from './pages';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Header from './components/Layout/Header';
+import Footer from './components/Layout/Footer';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
+import BlogPostDetail from './pages/BlogPostDetail';
+import CreateBlogPost from './pages/CreateBlogPost';
+import AdminDashboard from './pages/AdminDashboard';
+import SelfImprovement from './pages/SelfImprovement';
+import Psychology from './pages/Psychology';
+import Philosophy from './pages/Philosophy';
+import Art from './pages/Art';
+import Technology from './pages/Technology';
 
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <Router>
+    <Router>
+      <div className="flex flex-col min-h-screen">
         <Header />
-        <main className="flex">
-          <Sidebar />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/blog/:id" component={BlogPostDetail} />
-            <Route path="/create-post" component={CreateBlogPost} />
-            <Route path="/admin" component={AdminDashboard} />
-            <Route path="/admin/users" component={UserManagement} />
-            <Route path="/admin/posts" component={PostManagement} />
-          </Switch>
+        <main className="flex-grow">
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/blog/:id" element={<BlogPostDetail />} />
+          <Route path="/create-blog-post" element={<CreateBlogPost />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/self-improvement" element={<SelfImprovement />} />
+          <Route path="/psychology" element={<Psychology />} />
+          <Route path="/philosophy" element={<Philosophy />} />
+          <Route path="/art" element={<Art />} />
+          <Route path="/technology" element={<Technology />} />
         </main>
         <Footer />
-      </Router>
-    </Provider>
+      </div>
+    </Router>
   );
 };
 

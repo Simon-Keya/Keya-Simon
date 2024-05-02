@@ -1,39 +1,45 @@
-import React from 'react';
-import { Container, Typography, Card, CardHeader, CardBody } from '@material-tailwind/react';
-import { useParams } from 'react-router-dom';
-import { useBlogDispatch, LOAD_POST_DETAIL } from '../store/actions/blogActions';
+import React, { useState, useEffect } from 'react';
 
 const BlogPostDetail = () => {
-  const dispatch = useBlogDispatch();
-  const { id } = useParams<{ id: string }>();
+  const [post, setPost] = useState<any>(null);
 
-  React.useEffect(() => {
-    dispatch({ type: LOAD_POST_DETAIL, payload: id });
-  }, [dispatch, id]);
+  useEffect(() => {
+    // Fetch the blog post detail from the API
+    const fetchPost = async () => {
+      try {
+        const response = await fetch('https://api.example.com/blog/posts/1');
+        if (response.ok) {
+          const postData = await response.json();
+          setPost(postData);
+        } else {
+          console.error('Failed to fetch blog post');
+        }
+      } catch (error) {
+        console.error('Error fetching blog post:', error);
+      }
+    };
+
+    fetchPost();
+  }, []);
+
+  if (!post) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <Container>
-      <Typography variant="h1" className="mt-16 mb-8 text-4xl font-bold">
-        Blog Post Detail
-      </Typography>
-      <Card className="w-full max-w-sm mb-16">
-        <CardHeader color="blue-gray" className="text-center">
-          <Typography variant="h5" color="white" className="mb-2">
-            Title of the Post
-          </Typography>
-          <Typography variant="lead" color="white" className="opacity-70">
-            Author Name
-          </Typography>
-        </CardHeader>
-        <CardBody>
-          <Typography>
-            {/* Replace this with the actual blog post content from the state. */}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo, velit eget euismod euismod,
-            nisi lacus venenatis nisl, vel aliquet nunc nisi et velit.
-          </Typography>
-        </CardBody>
-      </Card>
-    </Container>
+    <div className="max-w-4xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+      <h2 className="text-2xl font-semibold mb-4">{post.title}</h2>
+      {post.image && (
+        <div className="mb-4">
+          <img src={post.image} alt={post.title} className="rounded-md" />
+        </div>
+      )}
+      <p className="text-gray-700 mb-4">{post.content}</p>
+      <div className="flex items-center">
+        <span className="text-gray-600 mr-2">Author: {post.author}</span>
+        <span className="text-gray-600">Published on: {post.publishedDate}</span>
+      </div>
+    </div>
   );
 };
 

@@ -1,48 +1,26 @@
 import React from 'react';
-import { Container, Typography } from '@material-tailwind/react';
-import { useAuthState } from '../store/reducers/authReducer';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
-  const { isLoggedIn } = useAuthState();
-  const history = useHistory();
-
-  const handleLoginClick = () => {
-    history.push('/login');
-  };
-
-  const handleRegisterClick = () => {
-    history.push('/register');
-  };
-
-  const handleLogoutClick = () => {
-    // Implement logout logic here.
-  };
-
   return (
-    <Container className="bg-gray-200 text-gray-800 py-4">
-      <div className="flex justify-between items-center">
-        <Typography variant="h4" className="cursor-pointer" onClick={() => history.push('/')}>
-          Simon Keya's Blog
-        </Typography>
-        <div>
-          {!isLoggedIn && (
-            <>
-              <button
-                className="mr-4"
-                onClick={handleLoginClick}
-              >
-                Login
-              </button>
-              <button onClick={handleRegisterClick}>Register</button>
-            </>
-          )}
-          {isLoggedIn && (
-            <button onClick={handleLogoutClick}>Logout</button>
-          )}
-        </div>
+    <header className="bg-gray-800 text-white p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <h1 className="text-2xl font-bold">Simon Keya's Blog</h1>
+        <nav>
+          <ul className="flex space-x-4">
+            <li>
+              <Link to="/" className="hover:underline">Home</Link>
+            </li>
+            <li>
+              <Link to="/blog" className="hover:underline">Blog</Link>
+            </li>
+            <li>
+              <Link to="/admin" className="hover:underline">Admin</Link>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </Container>
+    </header>
   );
 };
 

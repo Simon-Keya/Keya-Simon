@@ -1,21 +1,53 @@
-import api from './api';
+// auth.ts
 
-export const login = async (email: string, password: string) => {
-  const response = await api.post('/auth/login', { email, password });
-  return response.data;
+// Simulated user data
+const users = [
+  { id: 1, username: 'user1', password: 'password1' },
+  { id: 2, username: 'user2', password: 'password2' },
+  // Add more users if needed
+];
+
+// Function to authenticate user
+export const authenticateUser = (username: string, password: string): Promise<boolean> => {
+  return new Promise((resolve, reject) => {
+    // Simulate authentication process with a delay
+    setTimeout(() => {
+      const user = users.find((user) => user.username === username && user.password === password);
+      if (user) {
+        resolve(true); // Authentication successful
+      } else {
+        reject(new Error('Invalid username or password')); // Authentication failed
+      }
+    }, 1000); // Simulated delay of 1 second
+  });
 };
 
-export const logout = async () => {
-  const response = await api.post('/auth/logout');
-  return response.data;
+// Function to get user details by username
+export const getUserByUsername = (username: string): Promise<any> => {
+  return new Promise((resolve, reject) => {
+    // Simulate fetching user details with a delay
+    setTimeout(() => {
+      const user = users.find((user) => user.username === username);
+      if (user) {
+        resolve(user); // User found
+      } else {
+        reject(new Error('User not found')); // User not found
+      }
+    }, 500); // Simulated delay of 0.5 seconds
+  });
 };
 
-export const register = async (name: string, email: string, password: string) => {
-  const response = await api.post('/auth/register', { name, email, password });
-  return response.data;
-};
-
-export const checkAuth = async () => {
-  const response = await api.get('/auth/check');
-  return response.data;
+// Function to get user details by user ID
+export const getUserById = (userId: number): Promise<any> => {
+  return new Promise((resolve, reject) => {
+    // Simulate fetching user details with a delay
+    setTimeout(() => {
+      const user = users.find((user) => user.id === userId);
+      if (user) {
+        resolve(user); // User found
+      } else {
+        reject(new Error('User not found')); // User not found
+      }
+    }, 500); // Simulated delay of 0.5 seconds
+  });
 };
