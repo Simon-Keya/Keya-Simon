@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Layout/Header';
-import Footer from '../components/Layout/Footer';
+import './styles/Profile.css'
 
 const Profile = () => {
   const [user, setUser] = React.useState<{ username: string; email: string; bio: string } | null>(null);
@@ -22,7 +21,6 @@ const Profile = () => {
 
   return (
     <div>
-      <Header />
       <div className="container mx-auto py-8">
         <h2 className="text-3xl font-semibold mb-4">User Profile</h2>
         {user ? (
@@ -36,7 +34,6 @@ const Profile = () => {
         )}
         <Link to="/edit-profile" className="text-blue-500">Edit Profile</Link>
       </div>
-      <Footer />
     </div>
   );
 };

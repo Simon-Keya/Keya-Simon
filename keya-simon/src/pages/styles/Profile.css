@@ -1,0 +1,62 @@
+.container {
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.text-3xl {
+    font-size: 1.875rem;
+    /* Adjust font size as needed */
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.text-blue-500 {
+    color: #4299e1;
+}
+
+/* Styles for the user data */
+.profile-data {
+    margin-top: 1rem;
+}
+
+.profile-data p {
+    margin-bottom: 0.5rem;
+}
+
+/* Loading message */
+.loading-message {
+    margin-top: 1rem;
+}
+
+/* Styles for the Edit Profile link */
+.edit-profile-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #4299e1;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.edit-profile-link:hover {
+    color: #2c5282;
+    /* Darker shade of blue on hover */
+}

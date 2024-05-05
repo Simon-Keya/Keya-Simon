@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './styles/BlogPostDetail.css'
 
 const BlogPostDetail = () => {
   const [post, setPost] = useState<any>(null);

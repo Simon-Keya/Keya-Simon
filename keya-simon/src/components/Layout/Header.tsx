@@ -1,23 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/Layout/Header.css';
 
 const Header = () => {
   return (
-    <header className="bg-gray-800 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Simon Keya's Blog</h1>
-        <nav>
-          <ul className="flex space-x-4">
-            <li>
-              <Link to="/" className="hover:underline">Home</Link>
-            </li>
-            <li>
-              <Link to="/blog" className="hover:underline">Blog</Link>
-            </li>
-            <li>
-              <Link to="/admin" className="hover:underline">Admin</Link>
-            </li>
-          </ul>
+    <header className="bg-blue-500 text-white py-4">
+      <div className="container mx-auto flex items-center justify-between">
+        {/* Logo and Title (Left corner) */}
+        <div className="flex items-center">
+          <Link to="/" className="flex items-center">
+            <img src="/Logo.png" alt="Logo" className="h-8 mr-2" />
+            <span className="font-bold text-lg">Simon Keya</span>
+          </Link>
+        </div>
+
+        {/* Navigation Links (Right corner) */}
+        <nav className="space-x-4">
+          <Link to="/" className="hover:text-gray-200">Home</Link>
+          <Link to="/login" className="hover:text-gray-200">Login</Link>
+          <Link to="/register" className="hover:text-gray-200">Sign Up</Link>
         </nav>
       </div>
     </header>

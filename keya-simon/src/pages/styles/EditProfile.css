@@ -1,0 +1,80 @@
+/* Container styles */
+.container {
+    max-width: 28rem;
+    /* Adjust max-width as needed */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Margin top utility */
+.mt-8 {
+    margin-top: 2rem;
+}
+
+/* Typography styles */
+.text-2xl {
+    font-size: 1.5rem;
+    /* Adjust font size as needed */
+    font-weight: 600;
+}
+
+/* Form styles */
+.form-input {
+    margin-top: 0.25rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    border-width: 1px;
+    border-radius: 0.25rem;
+}
+
+.form-textarea {
+    margin-top: 0.25rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    border-width: 1px;
+    border-radius: 0.25rem;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #4299e1;
+    /* Adjust color as needed */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #3182ce;
+    /* Adjust hover color as needed */
+}
+
+/* Link styles */
+.link {
+    color: #4299e1;
+    /* Adjust color as needed */
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link:hover {
+    color: #2b6cb0;
+    /* Adjust hover color as needed */
+}
+
+/* Margin top utility for paragraphs */
+.mt-4 {
+    margin-top: 1rem;
+}
+
+/* Margin bottom utility for paragraphs */
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+/* Margin top utility for buttons */
+.mt-8 {
+    margin-top: 2rem;
+}

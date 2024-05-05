@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/Auth/LoginForm.css'
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');

@@ -1,21 +1,19 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 
-const Register = () => {
-  const history = useHistory();
+const Register: React.FC = () => {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Dispatch REGISTER action here
-    history.push('/login');
+    window.location.href = '/login';
   };
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-4xl font-bold mt-16 mb-8">Register</h1>
+      <h1 className="text-4xl font-bold mt-16 mb-8">Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="name" className="block mb-1">Name</label>
@@ -51,7 +49,7 @@ const Register = () => {
           />
         </div>
         <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none">
-          Register
+          Sign Up
         </button>
       </form>
     </div>

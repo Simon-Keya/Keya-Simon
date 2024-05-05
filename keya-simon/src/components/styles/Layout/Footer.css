@@ -1,0 +1,103 @@
+/* Footer Container */
+footer {
+    background-color: #081b38;
+    /* Dark gray */
+    color: #ffffff;
+    /* White */
+    padding: 2rem 0;
+    /* Top and bottom padding */
+}
+
+/* Social Media Icons */
+.social-icons button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Privacy Terms and Policy Button */
+.privacy-button {
+    font-size: 0.875rem;
+    /* 14px */
+    color: #ffffff;
+    /* White */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.privacy-button:hover {
+    text-decoration: underline;
+}
+
+/* Privacy Policy Popup */
+.privacy-popup {
+    background-color: #1f2937;
+    /* Dark gray */
+    color: #ffffff;
+    /* White */
+    padding: 1rem;
+    /* Padding around content */
+    border-radius: 0.5rem;
+    /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Shadow */
+}
+
+.privacy-popup h3 {
+    font-size: 1.125rem;
+    /* 18px */
+    font-weight: 600;
+    /* Semi-bold */
+    margin-bottom: 0.5rem;
+    /* Bottom margin */
+}
+
+.privacy-popup p {
+    font-size: 0.875rem;
+    /* 14px */
+}
+
+/* Copyright Information */
+.copyright {
+    font-size: 0.875rem;
+    /* 14px */
+    color: #ffffff;
+    /* White */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+
+    /* Footer Container */
+    footer {
+        padding: 2rem 1rem;
+        /* Reduce padding on smaller screens */
+    }
+
+    /* Social Media Icons */
+    .social-icons {
+        justify-content: center;
+        /* Center icons */
+    }
+
+    .social-icons button {
+        margin: 0 0.5rem;
+        /* Add space between icons */
+    }
+
+    /* Privacy Terms and Policy Button */
+    .privacy-button {
+        display: block;
+        /* Display as block element */
+        text-align: center;
+        /* Center text */
+    }
+
+    /* Privacy Policy Popup */
+    .privacy-popup {
+        width: 90%;
+        /* Set width to 90% of container */
+        margin: 0 auto;
+        /* Center horizontally */
+    }
+}

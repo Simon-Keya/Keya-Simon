@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles/CreateBlogPost.css'
 
 const CreateBlogPost = () => {
   const [title, setTitle] = useState('');

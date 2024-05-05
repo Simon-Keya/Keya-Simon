@@ -1,5 +1,6 @@
 import React, { useState, useEffect, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
+import './styles/EditProfile.css'
 
 const EditProfile = () => {
   const [username, setUsername] = useState('');

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import '../styles/Layout/Footer.css'
 
 const Footer = () => {
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
@@ -44,7 +45,7 @@ const Footer = () => {
       {/* Copyright Information */}
       <div className="container mx-auto text-center mt-4">
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Your Website. All Rights Reserved.
+          &copy; {new Date().getFullYear()} Keya Simon. All Rights Reserved.
         </p>
       </div>
     </footer>

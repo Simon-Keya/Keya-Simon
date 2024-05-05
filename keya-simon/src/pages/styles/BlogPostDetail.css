@@ -1,0 +1,79 @@
+/* Container styles */
+.container {
+    max-width: 56rem;
+    /* Adjust max-width as needed */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Margin top utility */
+.mt-8 {
+    margin-top: 2rem;
+}
+
+/* Typography styles */
+.text-2xl {
+    font-size: 1.5rem;
+    /* Adjust font size as needed */
+    font-weight: 600;
+}
+
+/* Image styles */
+.image {
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+}
+
+/* Text color styles */
+.text-gray-700 {
+    color: #4a5568;
+    /* Adjust text color as needed */
+}
+
+.text-gray-600 {
+    color: #718096;
+    /* Adjust text color as needed */
+}
+
+/* Flexbox styles */
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+/* Margin right utility */
+.mr-2 {
+    margin-right: 0.5rem;
+}
+
+/* Margin bottom utility */
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+/* Margin top utility for flex items */
+.mt-4 {
+    margin-top: 1rem;
+}
+
+/* Rounded corners for images */
+.rounded-md {
+    border-radius: 0.375rem;
+    /* Adjust border-radius as needed */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .container {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .text-2xl {
+        font-size: 1.25rem;
+        /* Adjust font size for smaller screens */
+    }
+}

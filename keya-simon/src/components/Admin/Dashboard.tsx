@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
+interface UserData {
+  id: number;
+  name: string;
+}
+
 const Dashboard = () => {
-  const [userData, setUserData] = useState([]);
-  const [postCount, setPostCount] = useState(0);
+  const [userData, setUserData] = useState<UserData[]>([]);
+  const [postCount, setPostCount] = useState<number>(0);
 
   useEffect(() => {
     // Fetch user data from an online repository
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
-      .then(data => setUserData(data))
+      .then((data: UserData[]) => setUserData(data))
       .catch(error => console.error('Error fetching user data:', error));
 
     // Fetch post count from an online repository

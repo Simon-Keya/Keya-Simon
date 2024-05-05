@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/Auth/RegisterForm.css'
 
 const RegisterForm = () => {
   const [fullName, setFullName] = useState('');
@@ -53,7 +54,7 @@ const RegisterForm = () => {
 
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-semibold mb-4">Register</h2>
+      <h2 className="text-2xl font-semibold mb-4">Sign Up</h2>
       {error && <div className="text-red-500 mb-4">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
