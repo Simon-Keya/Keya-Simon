@@ -1,11 +1,11 @@
 /* Header Container */
 header {
-    background-color: #0c3679;
+    background-color: #0b0116;
     /* Blue background */
     color: #ffffff;
     /* White text */
     padding: 1rem 0;
-    /* Vertical padding */
+    /* Vertical padSding */
 }
 
 /* Container for Logo and Navigation */
@@ -14,8 +14,10 @@ header {
     /* Maximum width */
     margin: 0 auto;
     /* Center the container horizontally */
-    padding: 0 2rem;
+    padding: 0 1rem;
     /* Horizontal padding */
+    display: flex;
+    justify-content: space-between;
 }
 
 /* Logo Styling */
@@ -38,10 +40,6 @@ nav {
     /* Display as flexbox */
     align-items: center;
     /* Center vertically */
-    justify-content: space-between;
-    /* Space between items */
-    flex-grow: 1;
-    /* Grow to fill available space */
 }
 
 /* Navigation Links Styling */
@@ -50,7 +48,7 @@ nav a {
     /* White text color */
     text-decoration: none;
     /* Remove default underline */
-    margin-right: 0rem;
+    margin-right: 1rem;
     /* Right margin between links */
     transition: color 0.3s;
     /* Smooth color transition */
@@ -60,68 +58,6 @@ nav a {
 nav a:hover {
     color: #d1d5db;
     /* Lighter text color on hover */
-}
-
-/* Dropdown Styling */
-.dropdown {
-    position: relative;
-    /* Position relative */
-}
-
-/* Dropdown Button Styling */
-.dropdown button {
-    background-color: transparent;
-    /* Transparent background */
-    color: #ffffff;
-    /* White text color */
-    border: none;
-    /* Remove border */
-    cursor: pointer;
-    /* Change cursor to pointer */
-    margin-right: 1rem;
-    /* Right margin */
-}
-
-/* Dropdown Content Styling */
-.dropdown-content {
-    display: none;
-    /* Hide dropdown content by default */
-    position: absolute;
-    /* Position absolute */
-    background-color: #ffffff;
-    /* White background */
-    min-width: 120px;
-    /* Minimum width */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    /* Box shadow */
-    z-index: 1;
-    /* Set z-index to ensure it appears above other elements */
-}
-
-/* Dropdown Content Links Styling */
-.dropdown-content a {
-    color: #000000;
-    /* Black text color */
-    padding: 12px 16px;
-    /* Padding */
-    text-decoration: none;
-    /* Remove default underline */
-    display: block;
-    /* Display as block */
-    transition: background-color 0.3s;
-    /* Smooth background color transition */
-}
-
-/* Dropdown Content Links Hover Effect */
-.dropdown-content a:hover {
-    background-color: #f3f4f6;
-    /* Light gray background on hover */
-}
-
-/* Show Dropdown Content on Hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-    /* Show dropdown content on hover */
 }
 
 /* Login and Sign Up Button Styling */
@@ -148,4 +84,24 @@ nav a:hover {
 .signup-btn:hover {
     color: #d1d5db;
     /* Lighter text color on hover */
+}
+
+/* Media Query for Small Devices */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        /* Stack elements vertically */
+        text-align: center;
+        /* Center align text */
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+        /* Bottom margin for the logo */
+    }
+
+    nav {
+        margin-top: 1rem;
+        /* Top margin for the navigation */
+    }
 }

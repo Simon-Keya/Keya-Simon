@@ -1,0 +1,49 @@
+/* Blog Post Container */
+.blog-post {
+    background-color: #ffffff;
+    /* White background */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* Shadow effect */
+    border-radius: 0.5rem;
+    /* Rounded corners */
+    padding: 1.5rem 2rem;
+    /* Padding */
+    margin-bottom: 1rem;
+    /* Bottom margin */
+}
+
+/* Blog Post Title */
+.blog-post-title {
+    font-size: 1.5rem;
+    /* Larger font size */
+    font-weight: bold;
+    /* Bold font */
+    margin-bottom: 1rem;
+    /* Bottom margin */
+}
+
+/* Blog Post Image */
+.blog-post-image {
+    width: 100%;
+    /* Full width */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin-bottom: 1rem;
+    /* Bottom margin */
+}
+
+/* Blog Post Quote */
+.blog-post-quote {
+    font-style: italic;
+    /* Italic font */
+    color: #4a5568;
+    /* Gray text color */
+}
+
+/* Media Query for Small Devices */
+@media (max-width: 768px) {
+    .blog-post {
+        padding: 1rem;
+        /* Decrease padding for small devices */
+    }
+}

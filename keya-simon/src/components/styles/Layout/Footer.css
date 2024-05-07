@@ -1,103 +1,122 @@
 /* Footer Container */
 footer {
-    background-color: #081b38;
-    /* Dark gray */
+    background-color: #090c36;
+    /* Gray background */
     color: #ffffff;
-    /* White */
-    padding: 2rem 0;
-    /* Top and bottom padding */
+    /* White text color */
+    padding: 1.5rem 0;
+    /* Vertical padding */
 }
 
-/* Social Media Icons */
-.social-icons button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+/* Container for Social Media Icons and Privacy Terms */
+.container {
+    max-width: 1200px;
+    /* Maximum width */
+    margin: 0 auto;
+    /* Center the container horizontally */
+    padding: 0 1rem;
+    /* Horizontal padding */
+    display: flex;
+    /* Display as flexbox */
+    justify-content: space-between;
+    /* Space evenly between items */
 }
 
-/* Privacy Terms and Policy Button */
-.privacy-button {
+/* Social Media Icons Styling */
+.social-media-icons {
+    display: flex;
+    /* Display as flexbox */
+    align-items: center;
+    /* Center vertically */
+    justify-content: flex-start;
+    /* Align to the left */
+    gap: 1rem;
+    /* Spacing between icons */
+}
+
+/* Privacy Terms and Policy Styling */
+.privacy-terms {
+    display: flex;
+    /* Display as flexbox */
+    align-items: center;
+    /* Center vertically */
+    justify-content: flex-end;
+    /* Align to the right */
+}
+
+/* Privacy Terms Button Styling */
+.privacy-terms button {
+    color: #ffffff;
+    /* White text color */
     font-size: 0.875rem;
-    /* 14px */
-    color: #ffffff;
-    /* White */
+    /* Font size */
     text-decoration: none;
+    /* Remove default underline */
     cursor: pointer;
+    /* Change cursor to pointer */
+    transition: color 0.3s;
+    /* Smooth color transition */
 }
 
-.privacy-button:hover {
-    text-decoration: underline;
+/* Privacy Terms Button Hover Effect */
+.privacy-terms button:hover {
+    color: #d1d5db;
+    /* Lighter text color on hover */
 }
 
-/* Privacy Policy Popup */
-.privacy-popup {
+/* Privacy Policy Content Styling */
+.privacy-policy-content {
+    position: absolute;
+    /* Position absolute */
     background-color: #1f2937;
-    /* Dark gray */
+    /* Dark gray background */
     color: #ffffff;
-    /* White */
+    /* White text color */
     padding: 1rem;
-    /* Padding around content */
+    /* Padding */
     border-radius: 0.5rem;
     /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Shadow */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* Box shadow */
+    top: 100%;
+    /* Position below the button */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Center horizontally */
+    width: 20rem;
+    /* Fixed width */
 }
 
-.privacy-popup h3 {
-    font-size: 1.125rem;
-    /* 18px */
-    font-weight: 600;
-    /* Semi-bold */
-    margin-bottom: 0.5rem;
-    /* Bottom margin */
-}
-
-.privacy-popup p {
-    font-size: 0.875rem;
-    /* 14px */
-}
-
-/* Copyright Information */
+/* Copyright Information Styling */
 .copyright {
-    font-size: 0.875rem;
-    /* 14px */
-    color: #ffffff;
-    /* White */
+    max-width: 1200px;
+    /* Maximum width */
+    margin: 0 auto;
+    /* Center the container horizontally */
+    padding: 0 1rem;
+    /* Horizontal padding */
+    text-align: center;
+    /* Center text */
+    margin-top: 1.5rem;
+    /* Top margin */
 }
 
-/* Responsive Styling */
-@media (max-width: 768px) {
+/* Copyright Text Styling */
+.copyright p {
+    font-size: 0.875rem;
+    /* Font size */
+}
 
-    /* Footer Container */
-    footer {
-        padding: 2rem 1rem;
-        /* Reduce padding on smaller screens */
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        /* Arrange items vertically on smaller screens */
     }
 
-    /* Social Media Icons */
-    .social-icons {
-        justify-content: center;
-        /* Center icons */
-    }
-
-    .social-icons button {
-        margin: 0 0.5rem;
-        /* Add space between icons */
-    }
-
-    /* Privacy Terms and Policy Button */
-    .privacy-button {
-        display: block;
-        /* Display as block element */
-        text-align: center;
-        /* Center text */
-    }
-
-    /* Privacy Policy Popup */
-    .privacy-popup {
-        width: 90%;
-        /* Set width to 90% of container */
-        margin: 0 auto;
-        /* Center horizontally */
+    .privacy-terms {
+        margin-top: 1rem;
+        /* Add margin top for privacy terms on smaller screens */
     }
 }

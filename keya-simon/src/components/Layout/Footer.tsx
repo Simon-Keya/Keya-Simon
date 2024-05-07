@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import '../styles/Layout/Footer.css'
+import '../styles/Layout/Footer.css';
 
 const Footer = () => {
-  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
-
-  const togglePrivacyPolicy = () => {
-    setShowPrivacyPolicy(!showPrivacyPolicy);
-  };
-
   return (
     <footer className="bg-gray-800 text-white py-6">
       <div className="container mx-auto flex justify-between items-center px-4">
+        {/* Social Media Icons */}
         <div className="flex items-center space-x-4">
-          {/* Social Media Icons */}
           <button onClick={() => window.open('https://twitter.com')} className="text-white focus:outline-none">
             <FaTwitter className="h-6 w-6 fill-current" />
           </button>
@@ -25,21 +19,13 @@ const Footer = () => {
           </button>
         </div>
         {/* Privacy Terms and Policy */}
-        <div>
-          <button
-            onClick={togglePrivacyPolicy}
-            className="text-sm text-white hover:underline focus:outline-none"
-          >
-            Privacy Terms & Policy
+        <div className="flex items-center space-x-4">
+          <button onClick={() => window.open('/privacy-policy')} className="text-sm text-white hover:underline focus:outline-none">
+            Privacy Policy
           </button>
-          {showPrivacyPolicy && (
-            <div className="absolute bg-gray-900 text-white p-4 rounded-lg shadow-lg mt-2">
-              <h3 className="text-lg font-semibold mb-2">Privacy Terms & Policy</h3>
-              <p className="text-sm">
-                {/* Privacy Terms and Policy Content */}
-              </p>
-            </div>
-          )}
+          <button onClick={() => window.open('/terms-and-conditions')} className="text-sm text-white hover:underline focus:outline-none">
+            Terms & Conditions
+          </button>
         </div>
       </div>
       {/* Copyright Information */}
