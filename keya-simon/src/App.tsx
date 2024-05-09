@@ -15,6 +15,7 @@ import Psychology from './pages/Psychology';
 import Philosophy from './pages/Philosophy';
 import Art from './pages/Art';
 import Technology from './pages/Technology';
+import PrivacyTermsPolicy from './pages/PrivacyTermsPolicy';   
 
 const App: React.FC = () => {
   return (
@@ -37,6 +38,7 @@ const App: React.FC = () => {
             <Route path="/philosophy" element={<Philosophy />} />
             <Route path="/art" element={<Art />} />
             <Route path="/technology" element={<Technology />} />
+            <Route path="/privacytermspolicy" element={<PrivacyTermsPolicy />} />
           </Routes>
         </main>
         <Footer />

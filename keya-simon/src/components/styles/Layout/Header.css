@@ -1,11 +1,12 @@
 /* Header Container */
 header {
-    background-color: #0b0116;
+    background-color: #1b0433;
     /* Blue background */
     color: #ffffff;
     /* White text */
     padding: 1rem 0;
     /* Vertical padSding */
+
 }
 
 /* Container for Logo and Navigation */
@@ -14,7 +15,7 @@ header {
     /* Maximum width */
     margin: 0 auto;
     /* Center the container horizontally */
-    padding: 0 1rem;
+
     /* Horizontal padding */
     display: flex;
     justify-content: space-between;
@@ -38,7 +39,7 @@ header {
 nav {
     display: flex;
     /* Display as flexbox */
-    align-items: center;
+    align-items: flex-start;
     /* Center vertically */
 }
 

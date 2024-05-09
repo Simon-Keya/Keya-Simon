@@ -20,10 +20,10 @@ const Footer = () => {
         </div>
         {/* Privacy Terms and Policy */}
         <div className="flex items-center space-x-4">
-          <button onClick={() => window.open('/privacy-policy')} className="text-sm text-white hover:underline focus:outline-none">
+          <button onClick={() => window.open('/privacytermspolicy')} className="text-sm text-white hover:underline focus:outline-none">
             Privacy Policy
           </button>
-          <button onClick={() => window.open('/terms-and-conditions')} className="text-sm text-white hover:underline focus:outline-none">
+          <button onClick={() => window.open('/privacytermspolicy')} className="text-sm text-white hover:underline focus:outline-none">
             Terms & Conditions
           </button>
         </div>

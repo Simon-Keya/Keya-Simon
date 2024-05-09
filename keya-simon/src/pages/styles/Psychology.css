@@ -1,0 +1,75 @@
+/* Styles for the Psychology section */
+
+.psychology-container {
+    display: flex;
+    /* Use flexbox for layout (can be changed to grid if needed) */
+    flex-wrap: wrap;
+    /* Allow content to wrap onto multiple lines */
+    justify-content: space-between;
+    /* Distribute posts horizontally */
+    margin: 2rem auto;
+    /* Center the container horizontally */
+    max-width: 1200px;
+    /* Limit container width on larger screens (optional) */
+}
+
+.psychology-post {
+    background-color: #fff;
+    /* Adjust background color as needed */
+    padding: 1rem;
+    /* Adjust padding if desired */
+    border-radius: 4px;
+    /* Add rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow effect */
+    margin-bottom: 1rem;
+    /* Add space between posts */
+    width: calc(33% - 1.6rem);
+    /* Set width based on desired number of columns */
+}
+
+.psychology-post h2 {
+    font-size: 1.2rem;
+    /* Adjust heading size */
+    margin-bottom: 0.5rem;
+    /* Add space below heading */
+}
+
+.psychology-post p {
+    /* Styles for both writing and quote content */
+    font-size: 1rem;
+    /* Adjust content text size */
+    line-height: 1.5;
+    /* Adjust line spacing */
+}
+
+
+.post-quote {
+    /* Styles for quote content */
+    font-style: italic;
+    /* Italicize quotes */
+    border-left: 0.2rem solid #ccc;
+    /* Add a subtle border to the left of quotes */
+    padding-left: 1rem;
+    /* Add left padding for the quote text */
+    margin-bottom: 1rem;
+    /* Add space below quotes */
+}
+
+.psychology-post img {
+    width: 100%;
+    /* Display images full width */
+    object-fit: cover;
+    /* Crop images to fit container */
+    height: 200px;
+    /* Set a default image height (optional) */
+}
+
+/* Media queries for responsiveness (optional) */
+
+@media (max-width: 768px) {
+    .psychology-post {
+        width: calc(50% - 1rem);
+        /* Adjust width for smaller screens */
+    }
+}

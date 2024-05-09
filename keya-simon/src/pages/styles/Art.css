@@ -1,0 +1,72 @@
+/* Styles for the Art component */
+
+.art-container {
+    display: flex;
+    /* Use flexbox for layout (can be changed to grid if needed) */
+    flex-wrap: wrap;
+    /* Allow content to wrap onto multiple lines */
+    justify-content: space-between;
+    /* Distribute posts horizontally */
+    margin: 2rem auto;
+    /* Center the container horizontally */
+    max-width: 1200px;
+    /* Limit container width on larger screens (optional) */
+}
+
+.art-post {
+    background-color: #fff;
+    /* Adjust background color as needed */
+    padding: 1rem;
+    /* Adjust padding if desired */
+    border-radius: 4px;
+    /* Add rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow effect */
+    margin-bottom: 1rem;
+    /* Add space between posts */
+    width: calc(33% - 1.6rem);
+    /* Set width based on desired number of columns */
+}
+
+.art-post h2 {
+    font-size: 1.2rem;
+    /* Adjust heading size */
+    margin-bottom: 0.5rem;
+    /* Add space below heading */
+}
+
+.art-post p,
+.art-post blockquote {
+    font-size: 1rem;
+    /* Adjust content text size */
+    line-height: 1.5;
+    /* Adjust line spacing */
+}
+
+.art-post img {
+    width: 100%;
+    /* Display images full width */
+    object-fit: cover;
+    /* Crop images to fit container */
+    height: 200px;
+    /* Set a default image height (optional) */
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .art-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .art-post {
+        padding: 15px;
+    }
+
+    .art-post h2 {
+        font-size: 1.3rem;
+    }
+
+    .art-post blockquote {
+        font-size: 1rem;
+    }
+}
