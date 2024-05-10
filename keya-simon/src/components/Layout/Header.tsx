@@ -4,7 +4,7 @@ import '../styles/Layout/Header.css';
 
 const Header = () => {
   return (
-    <header className="bg-blue-500 text-white py-4">
+    <header className="bg-blue text-white py-4">
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo and Title (Left corner) */}
         <div className="flex items-center">

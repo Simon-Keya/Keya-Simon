@@ -1,19 +1,29 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Auth/RegisterForm.css'
+import '../styles/Auth/RegisterForm.css' // Assuming same stylesheet
 
 const RegisterForm = () => {
-  const [fullName, setFullName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleGoogleLogin = () => {
+    // Implement your Google login logic here (e.g., redirect to Google login URL)
+    console.log('Redirecting to Google login...');
+    window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth? ... '; // Replace with your Google login URL
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError('');
+
+    // Validate name format (optional)
+    // You can add validation for name format if needed
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -30,15 +40,15 @@ const RegisterForm = () => {
       return;
     }
 
-    // Confirm password match
-    if (password !== confirmPassword) {
-      setError('Passwords do not match');
+    // Validate confirm password match
+    if (confirmPassword !== password) {
+      setError('Confirm password does not match password');
       setLoading(false);
       return;
     }
 
     try {
-      // Call register API here
+      // Call registration API here
       console.log('Registering...');
       // Simulate API call with setTimeout
       setTimeout(() => {
@@ -47,23 +57,23 @@ const RegisterForm = () => {
         console.log('Registration successful');
       }, 2000);
     } catch (error) {
-      setError('Registration failed. Please try again later.');
+      setError('Registration failed');
       setLoading(false);
     }
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-semibold mb-4">Sign Up</h2>
+    <div className="max-w-md mx-auto mt-8 p-8 bg-white rounded-lg shadow-md"> {/* Increased padding for larger area */}
+      <h2 className="text-2xl font-semibold mb-4">Register</h2>
       {error && <div className="text-red-500 mb-4">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="fullName" className="block text-gray-700">Full Name</label>
+          <label htmlFor="name" className="block text-gray-700">Name</label>
           <input
             type="text"
-            id="fullName"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             className="mt-1 p-2 w-full border rounded-md"
             required
           />
@@ -81,35 +91,70 @@ const RegisterForm = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="password" className="block text-gray-700">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="confirmPassword" className="block text-gray-700">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
-            required
-          />
-        </div>
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600" disabled={loading}>
-          {loading ? 'Registering...' : 'Register'}
-        </button>
-      </form>
-      <p className="mt-4 text-gray-600">
-        Already have an account? <Link to="/login" className="text-blue-500">Login</Link>
-      </p>
-    </div>
-  );
-};
-
-export default RegisterForm;
+          <div className="relative">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md"
+              required
+            />
+            <button
+              type="button"
+              className="absolute inset-y-0 right-0 flex items-center px-3 focus:outline-none"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                              <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 21a2 2 0 01-2 2H9a2 2 0 01-2-2v-7.5h10V21z" />
+                            </svg>
+                            ) : (
+                              <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                              </svg>
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                      <div className="mb-4">
+                        <label htmlFor="confirmPassword" className="block text-gray-700">Confirm Password</label>
+                        <input
+                          type={showPassword ? 'text' : 'password'}
+                          id="confirmPassword"
+                          value={confirmPassword}
+                          onChange={(e) => setConfirmPassword(e.target.value)}
+                          className="mt-1 p-2 w-full border rounded-md"
+                          required
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+                        disabled={loading}
+                      >
+                        {loading ? 'Registering...' : 'Sign Up'}
+                      </button>
+                      <div className="flex mt-4 items-center">
+                        <label className="flex items-center mr-4">
+                          <input type="checkbox" className="mr-2" />
+                          <span className="text-gray-700">Remember me</span>
+                        </label>
+                        <Link to="/forgot-password" className="text-blue-500 underline">
+                          Forgot password?
+                        </Link>
+                      </div>
+                      <div className="flex mt-4 items-center justify-end">
+                        <span className="text-gray-700 mr-2">or </span>
+                        <button onClick={handleGoogleLogin}>
+                          <img src="/assets/google-icon.svg" alt="Google login" className="h-6 w-6" />
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                );
+              };
+              
+              export default RegisterForm;
+              

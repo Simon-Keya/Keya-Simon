@@ -31,8 +31,9 @@ const App: React.FC = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/edit-profile" element={<EditProfile />} />
             <Route path="/blog/:id" element={<BlogPostDetail />} />
-            <Route path="/create-blog-post" element={<CreateBlogPost />} />
-            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+            <Route path="/createblogpost" element={<CreateBlogPost />} />
+            <Route path="/blogpostdetail" element={<BlogPostDetail />} />
+            <Route path="/admindashboard" element={<AdminDashboard />} />
             <Route path="/self-improvement" element={<SelfImprovement />} />
             <Route path="/psychology" element={<Psychology />} />
             <Route path="/philosophy" element={<Philosophy />} />

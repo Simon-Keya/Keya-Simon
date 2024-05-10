@@ -8,7 +8,7 @@ const BlogPostDetail = () => {
     // Fetch the blog post detail from the API
     const fetchPost = async () => {
       try {
-        const response = await fetch('https://api.example.com/blog/posts/1');
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
         if (response.ok) {
           const postData = await response.json();
           setPost(postData);
@@ -35,7 +35,7 @@ const BlogPostDetail = () => {
           <img src={post.image} alt={post.title} className="rounded-md" />
         </div>
       )}
-      <p className="text-gray-700 mb-4">{post.content}</p>
+      <p className="text-gray-700 mb-4">{post.body}</p>
       <div className="flex items-center">
         <span className="text-gray-600 mr-2">Author: {post.author}</span>
         <span className="text-gray-600">Published on: {post.publishedDate}</span>

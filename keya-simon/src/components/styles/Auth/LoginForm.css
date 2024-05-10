@@ -1,6 +1,8 @@
+/* LoginForm.css */
+
 .max-w-md {
-    max-width: 28rem;
-    /* Adjust max-width as needed */
+    /* Adjust as needed for different maximum widths */
+    max-width: 70rem;
 }
 
 .mx-auto {
@@ -12,26 +14,27 @@
     margin-top: 2rem;
 }
 
-.p-6 {
-    padding: 1.5rem;
+.p-8 {
+    /* Increased padding for larger area */
+    padding: 2rem;
 }
 
 .bg-white {
-    background-color: #fff;
+    background-color: #404ed1;
 }
 
 .rounded-lg {
     border-radius: 0.5rem;
-    /* Adjust border radius as needed */
 }
 
 .shadow-md {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
+
+/* Login form styles */
 
 .text-2xl {
     font-size: 1.5rem;
-    /* Adjust font size as needed */
 }
 
 .font-semibold {
@@ -43,55 +46,43 @@
 }
 
 .text-red-500 {
-    color: #e53e3e;
+    color: #dc3545;
 }
 
-.block {
-    display: block;
-}
-
-.text-gray-700 {
-    color: #4a5568;
-}
-
-.mt-1 {
-    margin-top: 0.25rem;
-}
-
-.p-2 {
-    padding: 0.5rem;
-}
+/* Login button styles */
 
 .w-full {
+    /* Makes the button span the entire width */
     width: 100%;
 }
 
-.border {
-    border-width: 1px;
-    border-color: #e2e8f0;
+.bg-blue-500 {
+    background-color: #4285f4;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .rounded-md {
-    border-radius: 0.375rem;
-    /* Adjust border radius as needed */
+    border-radius: 0.5rem;
 }
 
-.relative {
-    position: relative;
+.hover:bg-blue-600 {
+    background-color: #3872e3;
 }
 
-.absolute {
-    position: absolute;
-}
-
-.inset-y-0 {
-    top: 0;
-    bottom: 0;
-}
-
-.right-0 {
-    right: 0;
-}
+/* Checkbox styles */
 
 .flex {
     display: flex;
@@ -101,55 +92,73 @@
     align-items: center;
 }
 
-.px-3 {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+.mr-4 {
+    margin-right: 1rem;
 }
 
-.focus\:outline-none:focus {
-    outline: none;
+.text-gray-700 {
+    color: #37474F;
 }
 
-.h-5 {
-    height: 1.25rem;
-    /* Adjust height as needed */
+/* Forgot password link styles */
+
+.underline {
+    text-decoration: underline;
 }
 
-.w-5 {
-    width: 1.25rem;
-    /* Adjust width as needed */
+/* Google login icon styles */
+
+.h-6 {
+    height: 1.5rem;
 }
 
-.hover\:bg-blue-600:hover {
-    background-color: #2563eb;
+.w-6 {
+    width: 1.5rem;
 }
 
-.text-gray-600 {
-    color: #718096;
+.fill-current {
+    fill: currentColor;
 }
 
-.text-blue-500 {
-    color: #4299e1;
+.flex.mt-4 {
+    /* Apply margin to the entire row for spacing */
+    margin-top: 1rem;
 }
 
-@media (min-width: 640px) {
-    .grid-cols-1 {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
+.flex.mt-4 {
+    /* Apply margin to the entire row for spacing */
+    margin-top: 1rem;
 }
 
-.gap-4 {
-    gap: 1rem;
-    /* Adjust gap size as needed */
+.flex.mt-4.justify-center {
+    display: flex;
+    justify-content: flex-center;
+    align-items: center;
 }
 
-@media (min-width: 768px) {
-    .max-w-md {
-        max-width: 32rem;
-        /* Adjust max-width as needed */
-    }
+.text-gray-700.mr-2 {
+    color: #71717a;
+    margin-right: 20px;
+    margin-left: 90px;
+}
 
-    .grid-cols-1 {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
+.text-gray-700.mr-2::before {
+    /* Use four hyphens for full width */
+    margin-right: 10px;
+}
+
+button.h-6.w-6 {
+    /* Style the Google login button */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 8px;
+    /* Add margin for spacing */
+}
+
+button.h-6.w-6 img {
+    /* Style the Google login icon */
+    width: 100%;
+    height: 100%;
 }

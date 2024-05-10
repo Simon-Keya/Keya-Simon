@@ -1,138 +1,115 @@
-.max-w-md {
-    max-width: 28rem;
-    /* Adjust max-width as needed */
-}
-
-.mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.mt-8 {
-    margin-top: 2rem;
-}
-
-.p-6 {
-    padding: 1.5rem;
-}
-
-.bg-white {
+.register-form {
+    /* Overall container styles */
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 30px;
     background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.rounded-lg {
-    border-radius: 0.5rem;
-    /* Adjust border radius as needed */
-}
-
-.shadow-md {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.text-2xl {
+.register-form h2 {
+    /* Registration heading styles */
     font-size: 1.5rem;
-    /* Adjust font size as needed */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.font-semibold {
-    font-weight: 600;
+.register-form .error {
+    /* Error message styles */
+    color: red;
+    margin-bottom: 15px;
 }
 
-.mb-4 {
-    margin-bottom: 1rem;
-}
-
-.text-red-500 {
-    color: #e53e3e;
-}
-
-.block {
+.register-form label {
+    /* Label styles */
     display: block;
+    color: #777;
+    margin-bottom: 5px;
+    font-weight: normal;
 }
 
-.text-gray-700 {
-    color: #4a5568;
-}
-
-.mt-1 {
-    margin-top: 0.25rem;
-}
-
-.p-2 {
-    padding: 0.5rem;
-}
-
-.w-full {
+.register-form input[type="text"],
+.register-form input[type="password"],
+.register-form input[type="email"] {
+    /* Input field styles */
     width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 15px;
 }
 
-.border {
-    border-width: 1px;
-    border-color: #e2e8f0;
-}
-
-.rounded-md {
-    border-radius: 0.375rem;
-    /* Adjust border radius as needed */
-}
-
-.relative {
-    position: relative;
-}
-
-.flex {
-    display: flex;
-}
-
-.px-3 {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-}
-
-.focus\:outline-none:focus {
+.register-form input[type="text"]:focus,
+.register-form input[type="password"]:focus,
+.register-form input[type="email"]:focus {
+    /* Input field focus styles */
+    border-color: #ccc;
     outline: none;
 }
 
-.h-5 {
-    height: 1.25rem;
-    /* Adjust height as needed */
+.register-form button[type="submit"] {
+    /* Submit button styles */
+    background-color: #337ab7;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 }
 
-.w-5 {
-    width: 1.25rem;
-    /* Adjust width as needed */
+.register-form button[type="submit"]:hover {
+    /* Submit button hover styles */
+    background-color: #286090;
 }
 
-.hover\:bg-blue-600:hover {
-    background-color: #2563eb;
+.register-form button[type="submit"][disabled] {
+    /* Submit button disabled styles */
+    opacity: 0.5;
+    cursor: default;
 }
 
-.text-gray-600 {
-    color: #718096;
+.register-form .remember-me {
+    /* Remember me checkbox styles */
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-.text-blue-500 {
-    color: #4299e1;
+.register-form .remember-me input[type="checkbox"] {
+    margin-right: 10px;
 }
 
-@media (min-width: 640px) {
-    .grid-cols-1 {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
+.register-form .remember-me span {
+    color: #777;
 }
 
-.gap-4 {
-    gap: 1rem;
-    /* Adjust gap size as needed */
+.register-form .forgot-password {
+    /* Forgot password link styles */
+    color: #337ab7;
+    text-decoration: underline;
+    display: block;
+    margin-bottom: 15px;
 }
 
-@media (min-width: 768px) {
-    .max-w-md {
-        max-width: 32rem;
-        /* Adjust max-width as needed */
-    }
+.register-form .social-login {
+    /* Social login section styles */
+    display: flex;
+    justify-content: flex-end;
+}
 
-    .grid-cols-1 {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
+.register-form .social-login button {
+    /* Social login button styles (replace with your icon paths) */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.register-form .social-login button img {
+    width: 20px;
+    height: 20px;
 }

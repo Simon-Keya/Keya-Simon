@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './styles/AdminDashboard.css'; // Keep the CSS file for basic styles
 
 interface User {
   id: number;
@@ -30,9 +31,8 @@ const AdminDashboard = () => {
     fetchActivities();
   }, []);
 
-  // Fetch users from API
+  // Fetch users from API (replace with actual API call)
   const fetchUsers = () => {
-    // Simulated API call
     const usersData: User[] = [
       { id: 1, name: 'John Doe', role: 'Admin' },
       { id: 2, name: 'Jane Smith', role: 'User' },
@@ -43,9 +43,8 @@ const AdminDashboard = () => {
     setFilteredUsers(usersData);
   };
 
-  // Fetch activities from API
+  // Fetch activities from API (replace with actual API call)
   const fetchActivities = () => {
-    // Simulated API call
     const activitiesData: Activity[] = [
       { id: 1, action: 'Created a new post', user: 'John Doe', timestamp: '2024-05-01T12:00:00Z' },
       { id: 2, action: 'Updated user profile', user: 'Jane Smith', timestamp: '2024-05-01T12:30:00Z' },
@@ -69,8 +68,8 @@ const AdminDashboard = () => {
   }, [searchActivity, activities]);
 
   return (
-    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <h2 className="text-xl font-bold mb-4">Admin Dashboard</h2>
+    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-auto max-w-2xl">
+      <h2 className="text-xl font-bold mb-4 text-center">Admin Dashboard</h2>
       <div className="mb-4">
         <h3 className="text-lg font-semibold mb-2">Users</h3>
         <input
@@ -80,12 +79,36 @@ const AdminDashboard = () => {
           value={searchUser}
           onChange={(e) => setSearchUser(e.target.value)}
         />
-        <ul className="list-disc ml-8">
-          {filteredUsers.map((user) => (
-            <li key={user.id}>{user.name} - {user.role}</li>
-          ))}
-        </ul>
+        <div className="overflow-x-auto rounded-md shadow">
+          <table className="w-full text-sm text-left table-auto">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
+              <tr>
+                <th scope="col" className="py-3 px-6">
+                  ID
+                </th>
+                <th scope="col" className="py-3 px-6">
+                  Name
+                </th>
+                <th scope="col" className="py-3 px-6">
+                  Role
+                </th>
+              </tr>
+            </thead>
+<tbody>
+  {/* Loop through filtered users and display data in table rows */}
+  {filteredUsers.map((user) => (
+    <tr key={user.id} className="border-b border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
+      <td className="py-4 px-6">{user.id}</td>
+      <td className="py-4 px-6">{user.name}</td>
+      <td className="py-4 px-6">{user.role}</td>
+    </tr>
+  ))}
+</tbody>
+</table>
+        </div>
       </div>
+
+      {/* Similar implementation for Activities section */}
       <div className="mb-4">
         <h3 className="text-lg font-semibold mb-2">Activities</h3>
         <input
@@ -95,12 +118,34 @@ const AdminDashboard = () => {
           value={searchActivity}
           onChange={(e) => setSearchActivity(e.target.value)}
         />
-        <ul className="list-disc ml-8">
-          {filteredActivities.map((activity) => (
-            <li key={activity.id}>{activity.user} {activity.action} - {activity.timestamp}</li>
-          ))}
-        </ul>
+        <div className="overflow-x-auto rounded-md shadow">
+          <table className="w-full text-sm text-left table-auto">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
+              <tr>
+                <th scope="col" className="py-3 px-6">
+                  User
+                </th>
+                <th scope="col" className="py-3 px-6">
+                  Action
+                </th>
+                <th scope="col" className="py-3 px-6">
+                  Timestamp
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredActivities.map((activity) => (
+                <tr key={activity.id} className="border-b border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
+                  <td className="py-4 px-6">{activity.user}</td>
+                  <td className="py-4 px-6">{activity.action}</td>
+                  <td className="py-4 px-6">{activity.timestamp}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
+
       <div>
         <h3 className="text-lg font-semibold mb-2">Analytics</h3>
         <p>Total Users: {filteredUsers.length}</p>
