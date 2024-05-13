@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Auth/RegisterForm.css' // Assuming same stylesheet
+import '../styles/Auth/RegisterForm.css'; // Assuming same stylesheet
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -106,55 +106,55 @@ const RegisterForm = () => {
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? (
-                              <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 21a2 2 0 01-2 2H9a2 2 0 01-2-2v-7.5h10V21z" />
-                            </svg>
-                            ) : (
-                              <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                              </svg>
-                            )}
-                          </button>
-                        </div>
-                      </div>
-                      <div className="mb-4">
-                        <label htmlFor="confirmPassword" className="block text-gray-700">Confirm Password</label>
-                        <input
-                          type={showPassword ? 'text' : 'password'}
-                          id="confirmPassword"
-                          value={confirmPassword}
-                          onChange={(e) => setConfirmPassword(e.target.value)}
-                          className="mt-1 p-2 w-full border rounded-md"
-                          required
-                        />
-                      </div>
-                      <button
-                        type="submit"
-                        className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
-                        disabled={loading}
-                      >
-                        {loading ? 'Registering...' : 'Sign Up'}
-                      </button>
-                      <div className="flex mt-4 items-center">
-                        <label className="flex items-center mr-4">
-                          <input type="checkbox" className="mr-2" />
-                          <span className="text-gray-700">Remember me</span>
-                        </label>
-                        <Link to="/forgot-password" className="text-blue-500 underline">
-                          Forgot password?
-                        </Link>
-                      </div>
-                      <div className="flex mt-4 items-center justify-end">
-                        <span className="text-gray-700 mr-2">or </span>
-                        <button onClick={handleGoogleLogin}>
-                          <img src="/assets/google-icon.svg" alt="Google login" className="h-6 w-6" />
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                );
-              };
-              
-              export default RegisterForm;
+                <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 21a2 2 0 01-2 2H9a2 2 0 01-2-2v-7m4-4V3a2 2 0 012-2h2a2 2 0 012 2v4m-6 0V3a2 2 0 012-2h2a2 2 0 012 2v4" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+        <div className="mb-4">
+          <label htmlFor="confirmPassword" className="block text-gray-700">Confirm Password</label>
+          <input
+            type={showPassword ? 'text' : 'password'}
+            id="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            className="mt-1 p-2 w-full border rounded-md"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+          disabled={loading}
+        >
+          {loading ? 'Registering...' : 'Sign Up'}
+        </button>
+        <div className="flex mt-4 items-center">
+          <label className="flex items-center mr-4">
+            <input type="checkbox" className="mr-2" />
+            <span className="text-gray-700">Remember me</span>
+          </label>
+          <Link to="/forgot-password" className="text-blue-500 underline">
+            Forgot password?
+          </Link>
+        </div>
+        <div className="flex mt-4 items-center justify-end">
+          <span className="text-gray-700 mr-2">or </span>
+          <button onClick={handleGoogleLogin}>
+            <img src="/assets/google-icon.svg" alt="Google login" className="h-6 w-6" />
+          </button>
+        </div>
+        </form>
+      </div>
+  );
+};           
+           
+export default RegisterForm;
               

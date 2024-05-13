@@ -1,5 +1,5 @@
+/* Overall container styles */
 .register-form {
-    /* Overall container styles */
     max-width: 400px;
     margin: 80px auto;
     padding: 30px;
@@ -8,32 +8,32 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Registration heading styles */
 .register-form h2 {
-    /* Registration heading styles */
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 20px;
     text-align: center;
 }
 
+/* Error message styles */
 .register-form .error {
-    /* Error message styles */
     color: red;
     margin-bottom: 15px;
 }
 
+/* Label styles */
 .register-form label {
-    /* Label styles */
     display: block;
     color: #777;
     margin-bottom: 5px;
     font-weight: normal;
 }
 
+/* Input field styles */
 .register-form input[type="text"],
 .register-form input[type="password"],
 .register-form input[type="email"] {
-    /* Input field styles */
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -41,16 +41,16 @@
     margin-bottom: 15px;
 }
 
+/* Input field focus styles */
 .register-form input[type="text"]:focus,
 .register-form input[type="password"]:focus,
 .register-form input[type="email"]:focus {
-    /* Input field focus styles */
     border-color: #ccc;
     outline: none;
 }
 
+/* Submit button styles */
 .register-form button[type="submit"] {
-    /* Submit button styles */
     background-color: #337ab7;
     color: white;
     padding: 10px 20px;
@@ -60,19 +60,19 @@
     transition: background-color 0.2s ease-in-out;
 }
 
+/* Submit button hover styles */
 .register-form button[type="submit"]:hover {
-    /* Submit button hover styles */
     background-color: #286090;
 }
 
+/* Submit button disabled styles */
 .register-form button[type="submit"][disabled] {
-    /* Submit button disabled styles */
     opacity: 0.5;
     cursor: default;
 }
 
+/* Remember me checkbox styles */
 .register-form .remember-me {
-    /* Remember me checkbox styles */
     display: flex;
     align-items: center;
     margin-bottom: 15px;
@@ -86,22 +86,22 @@
     color: #777;
 }
 
+/* Forgot password link styles */
 .register-form .forgot-password {
-    /* Forgot password link styles */
     color: #337ab7;
     text-decoration: underline;
     display: block;
     margin-bottom: 15px;
 }
 
+/* Social login section styles */
 .register-form .social-login {
-    /* Social login section styles */
     display: flex;
     justify-content: flex-end;
 }
 
+/* Social login button styles */
 .register-form .social-login button {
-    /* Social login button styles (replace with your icon paths) */
     background-color: transparent;
     border: none;
     padding: 0;
@@ -112,4 +112,14 @@
 .register-form .social-login button img {
     width: 20px;
     height: 20px;
+}
+
+/* Password visibility button styles */
+.register-form .password-visibility-button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ccc;
 }

@@ -1,108 +1,143 @@
-/* Header Container */
+/* Header.css */
+
+/* Base styles */
 header {
-    background-color: #0c0438;
-    /* Blue background */
+    background-color: #154072;
+    /* Dark blue background */
     color: #ffffff;
     /* White text */
     padding: 1rem 0;
-    /* Vertical padSding */
+    top: 0;
+    /* Position it at the top of the viewport */
+    width: 100%;
+    /* Stretch the header across the entire width */
 
 }
 
-/* Container for Logo and Navigation */
 .container {
-    max-width: 1200px;
-    /* Maximum width */
-    margin: 0 auto;
-    /* Center the container horizontally */
-
-    /* Horizontal padding */
     display: flex;
     justify-content: space-between;
-}
-
-/* Logo Styling */
-.logo {
-    display: flex;
-    /* Display as flexbox */
     align-items: center;
-    /* Center vertically */
-    text-decoration: none;
-    /* Remove default underline */
-    font-weight: bold;
-    /* Bold text */
-    font-size: 1.5rem;
-    /* Larger font size */
+    max-width: 1200px;
+    /* Adjust as needed */
+    margin: 0 auto;
 }
 
-/* Navigation Styling */
+/* Logo and Title */
+.header .logo-title {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    /* Move logo and title to the right */
+}
+
+.header .logo-title img {
+    height: 3rem;
+    /* Adjust logo height as needed */
+    margin-right: 2rem;
+    /* Adjust spacing between logo and title */
+}
+
+.header .logo-title span {
+    font-size: 1.25rem;
+    /* Adjust font size as needed */
+    font-weight: bold;
+}
+
+/* Navigation Links */
 nav {
     display: flex;
-    /* Display as flexbox */
-    align-items: flex-start;
-    /* Center vertically */
+    align-items: center;
+    position: relative;
+    /* Make navigation bar relative to the header */
 }
 
-/* Navigation Links Styling */
 nav a {
-    color: #ffffff;
-    /* White text color */
     text-decoration: none;
-    /* Remove default underline */
-    margin-right: 1rem;
-    /* Right margin between links */
-    transition: color 0.3s;
-    /* Smooth color transition */
+    color: inherit;
+    padding: 1rem 1.5rem;
+    /* Increase space between links */
+    transition: color 0.2s ease-in-out;
+    /* Smooth hover transition */
 }
 
-/* Navigation Links Hover Effect */
+nav a:first-child {
+    /* Add space before Home link */
+    margin-left: 2rem;
+    /* Adjust as needed */
+}
+
 nav a:hover {
-    color: #d1d5db;
-    /* Lighter text color on hover */
+    color: #468dc4;
+    /* Lighter color on hover */
 }
 
-/* Login and Sign Up Button Styling */
-.login-btn,
-.signup-btn {
-    color: #ffffff;
-    /* White text color */
+/* Account and Category Dropdowns */
+.header .dropdown {
+    position: relative;
+    display: inline-block;
+    /* Ensures links stay inline */
+}
+
+.header .dropdown a {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.header .dropdown ul {
+    position: absolute;
+    top: 100%;
+    /* Position the dropdown below the navigation bar */
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 100px;
+    /* Adjust minimum width as needed */
+    opacity: 0;
+    /* Hide initially */
+    visibility: hidden;
+    /* Hide initially */
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+.header:hover .dropdown ul {
+    /* Show dropdown on hover of the header */
+    opacity: 1;
+    visibility: visible;
+    /* Show on hover */
+}
+
+.header .dropdown ul li {
+    padding: 0.5rem 1rem;
+}
+
+.header .dropdown ul li a {
+    display: block;
+    color: #333;
+    padding: 5px 10px;
+    border-bottom: 1px solid #eee;
     text-decoration: none;
-    /* Remove default underline */
-    background-color: transparent;
-    /* Transparent background */
-    border: none;
-    /* Remove border */
-    cursor: pointer;
-    /* Change cursor to pointer */
-    margin-right: 1rem;
-    /* Right margin */
-    transition: color 0.3s;
-    /* Smooth color transition */
+    transition: background-color 0.2s ease-in-out;
 }
 
-/* Login and Sign Up Button Hover Effect */
-.login-btn:hover,
-.signup-btn:hover {
-    color: #d1d5db;
-    /* Lighter text color on hover */
+.header .dropdown ul li a:hover {
+    background-color: #f2f2f2;
 }
 
-/* Media Query for Small Devices */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        /* Stack elements vertically */
-        text-align: center;
-        /* Center align text */
-    }
+/* Login and Sign Up Links */
+.header .login-signup {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    /* Move Login and Signup to the far right */
+}
 
-    .logo {
-        margin-bottom: 1rem;
-        /* Bottom margin for the logo */
-    }
-
-    nav {
-        margin-top: 1rem;
-        /* Top margin for the navigation */
-    }
+/* Additional styles (optional) */
+.header a:focus {
+    /* Add focus styles for accessibility */
+    outline: 1px solid
 }
