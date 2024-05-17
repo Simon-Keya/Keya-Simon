@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import Routes
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
+import Blog from './pages/Blog';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register'; // Updated import
@@ -30,6 +31,7 @@ const App: React.FC = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/edit-profile" element={<EditProfile />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPostDetail />} />
             <Route path="/createblogpost" element={<CreateBlogPost />} />
             <Route path="/blogpostdetail" element={<BlogPostDetail />} />
