@@ -1,0 +1,2 @@
+2024-06-27T16:51:12.788Z [[31merror[39m]: MongoDB connection error: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+2024-06-27T17:41:30.722Z [[31merror[39m]: MongoDB connection error: bad auth : authentication failed
