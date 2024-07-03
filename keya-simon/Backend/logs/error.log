@@ -1,2 +1,6 @@
 2024-06-27T16:51:12.788Z [[31merror[39m]: MongoDB connection error: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
 2024-06-27T17:41:30.722Z [[31merror[39m]: MongoDB connection error: bad auth : authentication failed
+2024-06-28T16:08:54.384Z [[31merror[39m]: MongoDB connection error: Password contains unescaped characters
+2024-06-28T16:11:24.774Z [[31merror[39m]: MongoDB connection error: Password contains unescaped characters
+2024-06-28T16:34:16.651Z [[31merror[39m]: MongoDB connection error: Password contains unescaped characters
+2024-06-28T16:35:57.802Z [[31merror[39m]: MongoDB connection error: URI option "w" cannot appear more than once in the connection string

@@ -1,5 +1,5 @@
-import { Document, Schema, Types, model } from 'mongoose';
-import { IBlogPost } from './BlogPost';
+import { Document, Schema, model } from 'mongoose';
+import { IBlogPost } from './Post';
 import { IUser } from './User';
 
 // Define the IComment interface extending from Document
@@ -18,13 +18,13 @@ const commentSchema = new Schema<IComment>({
     required: true,
   },
   author: {
-    type: Types.ObjectId,
+    type: Schema.Types.ObjectId, // Use Schema.Types.ObjectId instead of Types.ObjectId
     ref: 'User',
     required: true,
   },
   blogPost: {
-    type: Types.ObjectId,
-    ref: 'BlogPost',
+    type: Schema.Types.ObjectId, // Corrected reference to blogPost
+    ref: 'Post',
     required: true,
   },
   createdAt: {
@@ -38,7 +38,7 @@ const commentSchema = new Schema<IComment>({
 });
 
 // Middleware to update the updatedAt field on document save
-commentSchema.pre('save', function (next) {
+commentSchema.pre<IComment>('save', function (next) {
   this.updatedAt = new Date();
   next();
 });
