@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/Auth/RegisterForm.css'; // Assuming same stylesheet
+import { Link, useNavigate } from 'react-router-dom';
+import { registerUser } from '../../services/auth';
+import '../styles/Auth/RegisterForm.css';
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -10,11 +11,11 @@ const RegisterForm = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
-    // Implement your Google login logic here (e.g., redirect to Google login URL)
     console.log('Redirecting to Google login...');
-    window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth? ... '; // Replace with your Google login URL
+    window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?...'; // Replace with your Google login URL
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -22,10 +23,6 @@ const RegisterForm = () => {
     setLoading(true);
     setError('');
 
-    // Validate name format (optional)
-    // You can add validation for name format if needed
-
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setError('Please enter a valid email address');
@@ -33,14 +30,12 @@ const RegisterForm = () => {
       return;
     }
 
-    // Validate password length
     if (password.length < 6) {
       setError('Password must be at least 6 characters long');
       setLoading(false);
       return;
     }
 
-    // Validate confirm password match
     if (confirmPassword !== password) {
       setError('Confirm password does not match password');
       setLoading(false);
@@ -48,22 +43,18 @@ const RegisterForm = () => {
     }
 
     try {
-      // Call registration API here
-      console.log('Registering...');
-      // Simulate API call with setTimeout
-      setTimeout(() => {
-        setLoading(false);
-        // Handle successful registration
-        console.log('Registration successful');
-      }, 2000);
-    } catch (error) {
-      setError('Registration failed');
+      const response = await registerUser(name, email, password);
+      console.log('Registration successful', response);
+      setLoading(false);
+      navigate('/login');
+    } catch (error: any) {
+      setError(error.message);
       setLoading(false);
     }
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-8 bg-white rounded-lg shadow-md"> {/* Increased padding for larger area */}
+    <div className="max-w-md mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-semibold mb-4">Register</h2>
       {error && <div className="text-red-500 mb-4">{error}</div>}
       <form onSubmit={handleSubmit}>
@@ -151,10 +142,9 @@ const RegisterForm = () => {
             <img src="/assets/google-icon.svg" alt="Google login" className="h-6 w-6" />
           </button>
         </div>
-        </form>
-      </div>
+      </form>
+    </div>
   );
-};           
-           
+};
+
 export default RegisterForm;
-              

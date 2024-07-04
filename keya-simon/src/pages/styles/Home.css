@@ -1,109 +1,140 @@
-/* Global styles (can be moved to a separate CSS file) */
-body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
+/* Home.css */
+
+.home-container {
+    background-image: url('https://images.unsplash.com/photo-1496128855207-87911faa6d99?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdparamrefQ8fDB8&auto=format&fit=crop&w=800&q=60');
+    background-size: cover;
+    background-position: center;
     min-height: 100vh;
-    background-color: #f5f5f5;
-
-}
-
-/* Container for the entire content */
-.flex {
-    display: flex;
-}
-
-/* Sidebar styles (assuming styles are defined in Sidebar.css) */
-.flex-row {
-    flex-direction: row;
-}
-
-.flex-grow {
-    flex: 1;
-}
-
-/* Main content area */
-.p-8 {
-    padding: 2rem;
-}
-
-/* Heading styles */
-h1,
-h2 {
-    margin-bottom: 1rem;
-}
-
-h1 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .home-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .home-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  .home-content {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .welcome-section {
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  
+  .quote-section {
+    margin-bottom: 2rem;
+  }
+  
+  .subtitle {
     font-size: 1.5rem;
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-/* Quote of the Day section */
-blockquote {
-    margin: 0 0 1rem 1.5rem;
-    padding: 0.5rem 1rem;
-    border-left: solid 4px #007bff;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .quote {
     font-style: italic;
-}
-
-blockquote p:first-child {
+    border-left-width: 4px;
+    border-color: #3b82f6;
+    padding-left: 1rem;
+  }
+  
+  .quote p {
     font-size: 1.125rem;
-    line-height: 1.5;
-}
-
-blockquote p:last-child {
+  }
+  
+  .author {
     font-size: 0.875rem;
     margin-top: 0.5rem;
-}
-
-/* About Me section */
-.text-lg {
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-/* Latest Blog Posts section */
-.mt-8 {
-    margin-top: 2rem;
-}
-
-/* Popular Tags section */
-
-/* List styles */
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-ul li {
+  }
+  
+  .about-section {
+    margin-bottom: 2rem;
+  }
+  
+  .about-section p {
+    font-size: 1.125rem;
+  }
+  
+  .latest-posts-section {
+    margin-bottom: 2rem;
+  }
+  
+  .latest-posts-section ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .latest-posts-section li {
     margin-bottom: 0.5rem;
-}
-
-/* Links */
-a {
+  }
+  
+  .latest-posts-section a {
+    color: #3b82f6;
     text-decoration: none;
-    color: inherit;
-}
-
-a:hover {
-    color: #0056b3;
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-
-    /* Adjust layout for smaller screens */
-    .flex-row {
-        flex-direction: column;
+  }
+  
+  .latest-posts-section a:hover {
+    color: #2563eb;
+  }
+  
+  .image-carousel {
+    position: relative;
+    overflow: hidden;
+    height: 16rem;
+    margin-bottom: 2rem;
+  }
+  
+  .image-carousel .animate-slide {
+    display: flex;
+    animation: slide 15s infinite;
+  }
+  
+  .image-carousel .animate-slide > div {
+    width: 100%;
+    flex-shrink: 0;
+  }
+  
+  .image-carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  @keyframes slide {
+    0%, 20% {
+      transform: translateX(0%);
     }
-
-    .flex-grow {
-        flex: initial;
+    25%, 45% {
+      transform: translateX(-100%);
     }
-}
+    50%, 70% {
+      transform: translateX(-200%);
+    }
+    75%, 95% {
+      transform: translateX(-300%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  
