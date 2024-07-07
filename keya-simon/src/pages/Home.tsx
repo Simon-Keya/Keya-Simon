@@ -13,6 +13,10 @@ const Home = () => {
   const [quoteOfTheDay, setQuoteOfTheDay] = useState({ text: '', author: '' });
   const [latestPosts, setLatestPosts] = useState<Post[]>([]);
   const [imageUrls, setImageUrls] = useState<string[]>([]);
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionMessage, setSubmissionMessage] = useState('');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     fetchQuoteOfTheDay();
@@ -20,11 +24,18 @@ const Home = () => {
     fetchImageUrls();
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+    }, 3000); // Change image every 3 seconds
+    return () => clearInterval(interval);
+  }, [imageUrls]);
+
   const fetchQuoteOfTheDay = async () => {
     try {
       const response = await axios.get('https://zenquotes.io/api/random');
-      const { content, author } = response.data;
-      setQuoteOfTheDay({ text: content, author });
+      const { q: text, a: author } = response.data[0];
+      setQuoteOfTheDay({ text, author });
     } catch (error) {
       console.error('Error fetching quote of the day:', error);
     }
@@ -51,6 +62,25 @@ const Home = () => {
       setImageUrls(imageUrls);
     } catch (error) {
       console.error('Error fetching image URLs:', error);
+    }
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      // Replace with your API endpoint to handle newsletter signup
+      await axios.post('https://api.example.com/newsletter/signup', { email });
+      setSubmissionMessage('Thank you for signing up!');
+    } catch (error) {
+      console.error('Error signing up for newsletter:', error);
+      setSubmissionMessage('Failed to sign up. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -83,30 +113,53 @@ const Home = () => {
               How you process what I share here is based on your own perspective. I also read about psychology and am familiar with several psychological books. Read on and decide for yourself.
             </p>
             <div className="flex flex-row justify-start mt-4">
-              <Link to="/blog" className="mr-4 mb-2 px-4 py-2 bg-purple-800 text-white rounded hover:bg-purple-900">BLOG</Link>
-              <a href="https://simon-keya.vercel.app" className="mr-4 mb-2 px-4 py-2 bg-purple-800 text-white rounded hover:bg-purple-900">TECH WEBSITE</a>
-              <a href="https://keyart.vercel.app" className="px-4 py-2 bg-purple-800 text-white rounded hover:bg-purple-900">ART WEBSITE</a>
+              <Link to="/blog" className="button-dark-purple button-link">BLOG</Link>
+              <a href="https://simon-keya.vercel.app" className="button-dark-purple button-link">TECH WEBSITE</a>
+              <a href="https://keyart.vercel.app" className="button-dark-purple">ART WEBSITE</a>
             </div>
           </div>
           <div className="latest-posts-section">
-            <h2 className="subtitle">Latest Blog Posts</h2>
+            <h2 className="subtitle">Topic Posts</h2>
             <ul>
               {latestPosts.map((post) => (
                 <li key={post.id}>
-                  <a href={`/blog/${post.id}`}>{post.title}</a>
+                  <Link to={`/blog/${post.id}`} className="post-link">{post.title}</Link>
                 </li>
               ))}
             </ul>
           </div>
           <div className="image-carousel">
-            <div className="animate-slide">
-              {imageUrls.map((imageUrl, index) => (
-                <div key={index} className="relative">
-                  <img src={imageUrl} alt={`Blog Post ${index + 1}`} />
-                  <div className="image-title">{imageTitles[index]}</div>
-                </div>
-              ))}
+            <div className="relative">
+              <img
+                src={imageUrls[currentImageIndex]}
+                alt={`Blog Post ${currentImageIndex + 1}`}
+                className="carousel-image"
+              />
+              <div className="image-title">{imageTitles[currentImageIndex]}</div>
             </div>
+          </div>
+          <div className="newsletter-section">
+            <h2 className="subtitle">5 MINUTES EACH WEEK THAT MIGHT CHANGE YOUR LIFE</h2>
+            <p>
+              Enter your email address below to sign up for my free newsletter, Your Next Breakthrough. Each week, you’ll receive a few prompts and exercises designed to create your next breakthrough. No fluff, no filler, no BS. Just five minutes each week that might change your life.
+            </p>
+            <form onSubmit={handleEmailSubmit} className="newsletter-form">
+              <input
+                type="email"
+                placeholder="Your Email Address"
+                value={email}
+                onChange={handleEmailChange}
+                className="newsletter-input"
+                required
+              />
+              <button type="submit" className="newsletter-button" disabled={isSubmitting}>
+                SIGN UP
+              </button>
+            </form>
+            {submissionMessage && <p className="submission-message">{submissionMessage}</p>}
+            <p>
+              Your information is protected and I never spam, ever. You can view my <a href="/privacy-policy" className="privacy-link">privacy policy here</a>.
+            </p>
           </div>
         </div>
       </div>
