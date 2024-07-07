@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './styles/Home.css';
 
 interface Post {
@@ -21,7 +22,7 @@ const Home = () => {
 
   const fetchQuoteOfTheDay = async () => {
     try {
-      const response = await axios.get('https://api.quotable.io/random');
+      const response = await axios.get('https://zenquotes.io/api/random');
       const { content, author } = response.data;
       setQuoteOfTheDay({ text: content, author });
     } catch (error) {
@@ -41,11 +42,11 @@ const Home = () => {
   const fetchImageUrls = async () => {
     try {
       const imageUrls = [
-        '/assets/technology.jpg',
-        '/assets/psychology.jpg',
-        '/assets/art.jpg',
-        '/assets/self-improvement.jpg',
-        '/assets/philosophy.jpg',
+        '../../assets/technology.jpg',
+        '../../assets/psychology.jpg',
+        '../../assets/art.jpg',
+        '../../assets/self-improvement.jpg',
+        '../../assets/philosophy.jpg',
       ];
       setImageUrls(imageUrls);
     } catch (error) {
@@ -74,6 +75,18 @@ const Home = () => {
               Feel free to explore the different categories and engage with the content by leaving comments or sharing your own insights.
               Whether you're interested in exploring new ideas or sharing your perspective, this blog is a space for open discussion and learning.
             </p>
+          </div>
+          <div className="owner-section">
+            <h2 className="subtitle">About the Author</h2>
+            <p>
+              Hi, I’m Simon Keya. I am a software developer and artist. I write life advice that is science-based, pragmatic, and non-bullshitty—a.k.a., a free perspective that doesn’t suck.
+              How you process what I share here is based on your own perspective. I also read about psychology and am familiar with several psychological books. Read on and decide for yourself.
+            </p>
+            <div className="flex flex-row justify-start mt-4">
+              <Link to="/blog" className="mr-4 mb-2 px-4 py-2 bg-purple-800 text-white rounded hover:bg-purple-900">BLOG</Link>
+              <a href="https://simon-keya.vercel.app" className="mr-4 mb-2 px-4 py-2 bg-purple-800 text-white rounded hover:bg-purple-900">TECH WEBSITE</a>
+              <a href="https://keyart.vercel.app" className="px-4 py-2 bg-purple-800 text-white rounded hover:bg-purple-900">ART WEBSITE</a>
+            </div>
           </div>
           <div className="latest-posts-section">
             <h2 className="subtitle">Latest Blog Posts</h2>

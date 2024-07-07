@@ -1,7 +1,6 @@
 /* Home.css */
 
 .home-container {
- /* Replace with your background image path */
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -75,6 +74,60 @@
   font-size: 1.125rem;
 }
 
+.owner-section {
+  margin-bottom: 2rem;
+}
+
+.owner-section p {
+  font-size: 1.125rem;
+}
+
+.owner-section .flex {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: start;
+  margin-top: 1rem;
+}
+
+.owner-section .flex .mr-4 {
+  margin-right: 1rem;
+}
+
+.owner-section .flex .mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.owner-section .flex .md\:mb-0 {
+  margin-bottom: 0;
+}
+
+.owner-section .flex .px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.owner-section .flex .py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.owner-section .flex .bg-purple-800 {
+  background-color: #4c1d95; /* Dark purple */
+}
+
+.owner-section .flex .text-white {
+  color: #ffffff;
+}
+
+.owner-section .flex .rounded {
+  border-radius: 0.25rem;
+}
+
+.owner-section .flex .hover\:bg-purple-900:hover {
+  background-color: #3f0f83; /* Darker purple */
+}
+
 .latest-posts-section {
   margin-bottom: 2rem;
 }
@@ -143,6 +196,6 @@
     transform: translateX(-300%);
   }
   100% {
-    transform: translateX(0%);
+    transform: translateX(-400%);
   }
 }
