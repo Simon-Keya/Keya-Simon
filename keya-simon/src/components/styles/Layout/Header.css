@@ -1,143 +1,153 @@
-/* Header.css */
-
 /* Base styles */
 header {
-    background-color: #154072;
-    /* Dark blue background */
-    color: #ffffff;
-    /* White text */
+    background-color: #154072; /* Dark blue background */
+    color: #ffffff; /* White text */
     padding: 1rem 0;
+    position: fixed;
     top: 0;
-    /* Position it at the top of the viewport */
     width: 100%;
-    /* Stretch the header across the entire width */
-
+    z-index: 1000; 
 }
 
-.container {
+/* Container for center alignment and spacing */
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    /* Adjust as needed */
+    max-width: 1200px; /* Adjust as needed */
     margin: 0 auto;
+    padding: 0 1rem; /* Add padding for container sides */
 }
 
 /* Logo and Title */
-.header .logo-title {
+.header-logo {
     display: flex;
     align-items: center;
-    margin-left: auto;
-    /* Move logo and title to the right */
+    text-decoration: none;
 }
 
-.header .logo-title img {
-    height: 3rem;
-    /* Adjust logo height as needed */
-    margin-right: 2rem;
-    /* Adjust spacing between logo and title */
+.header-logo img {
+    height: 3rem; /* Adjust logo height as needed */
+    margin-right: 0.5rem; /* Adjust spacing between logo and title */
 }
 
-.header .logo-title span {
-    font-size: 1.25rem;
-    /* Adjust font size as needed */
+.header-logo span {
+    font-size: 1.5rem; /* Adjust font size as needed */
     font-weight: bold;
+    white-space: nowrap; /* Prevent line break */
 }
 
 /* Navigation Links */
-nav {
+.header-nav {
     display: flex;
     align-items: center;
-    position: relative;
-    /* Make navigation bar relative to the header */
+    gap: 1rem; /* Increase space between links */
+    width: 100%;
+    justify-content: space-between;
 }
 
-nav a {
+.header-nav .center-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Space between Home, Blog, Categories, and Resources links */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-nav a {
     text-decoration: none;
     color: inherit;
-    padding: 1rem 1.5rem;
-    /* Increase space between links */
-    transition: color 0.2s ease-in-out;
-    /* Smooth hover transition */
+    padding: 0.5rem 1rem; /* Increase space between links */
+    transition: color 0.2s ease-in-out; /* Smooth hover transition */
 }
 
-nav a:first-child {
-    /* Add space before Home link */
-    margin-left: 2rem;
-    /* Adjust as needed */
+.header-nav a:hover {
+    color: #b8ca97; /* Lighter color on hover */
 }
 
-nav a:hover {
-    color: #468dc4;
-    /* Lighter color on hover */
-}
-
-/* Account and Category Dropdowns */
-.header .dropdown {
+/* Dropdown Menu Styles */
+.dropdown-menu {
     position: relative;
-    display: inline-block;
-    /* Ensures links stay inline */
+    display: inline-block; /* Ensures links stay inline */
 }
 
-.header .dropdown a {
-    display: block;
+.dropdown-button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
     padding: 0.5rem 1rem;
+    transition: color 0.2s ease-in-out;
 }
 
-.header .dropdown ul {
+.dropdown-button:hover {
+    color: #d1694e; /* Lighter color on hover */
+}
+
+.dropdown-content {
     position: absolute;
-    top: 100%;
-    /* Position the dropdown below the navigation bar */
+    top: 100%; /* Position the dropdown below the button */
     left: 0;
-    background-color: #fff;
+    background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     list-style: none;
     padding: 0;
     margin: 0;
-    min-width: 100px;
-    /* Adjust minimum width as needed */
-    opacity: 0;
-    /* Hide initially */
-    visibility: hidden;
-    /* Hide initially */
+    min-width: 150px; /* Adjust minimum width as needed */
+    opacity: 1; /* Show initially */
+    visibility: visible; /* Show initially */
     transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    z-index: 1001; /* Ensure dropdown appears above other content */
 }
 
-.header:hover .dropdown ul {
-    /* Show dropdown on hover of the header */
-    opacity: 1;
-    visibility: visible;
-    /* Show on hover */
-}
-
-.header .dropdown ul li {
-    padding: 0.5rem 1rem;
-}
-
-.header .dropdown ul li a {
+.dropdown-content a {
     display: block;
+    padding: 0.5rem 1rem;
     color: #333;
-    padding: 5px 10px;
-    border-bottom: 1px solid #eee;
     text-decoration: none;
     transition: background-color 0.2s ease-in-out;
 }
 
-.header .dropdown ul li a:hover {
-    background-color: #f2f2f2;
+.dropdown-content a:hover {
+    background-color: #f2f2f2; /* Light grey on hover */
 }
 
-/* Login and Sign Up Links */
-.header .login-signup {
+.dropdown-menu:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible; /* Show on hover */
+}
+
+/* Authentication Links */
+.header-nav .auth-links {
     display: flex;
     align-items: center;
-    margin-left: auto;
-    /* Move Login and Signup to the far right */
+    gap: 1rem; /* Increase space between auth links */
+}
+
+.login-button {
+    background-color: #468dc4; /* Light blue for login */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.signup-button {
+    background-color: #28a745; /* Green for sign up */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
 /* Additional styles (optional) */
 .header a:focus {
     /* Add focus styles for accessibility */
-    outline: 1px solid
+    outline: 1px solid #468dc4;
+}
+
+/* Add margin to the top of the main content */
+body {
+    margin-top: 70px; /* Adjust this value to match the header height */
 }
