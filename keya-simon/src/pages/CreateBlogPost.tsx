@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles/CreateBlogPost.css'
+import './styles/CreateBlogPost.css';
 
 const CreateBlogPost = () => {
   const [title, setTitle] = useState('');
@@ -40,41 +40,43 @@ const CreateBlogPost = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-semibold mb-4">Create Blog Post</h2>
+    <div className="max-w-lg mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
+      <h2 className="text-3xl font-bold mb-6 text-center text-blue-600">Create Blog Post</h2>
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="title" className="block text-gray-700">Title</label>
+        <div className="mb-5">
+          <label htmlFor="title" className="block text-gray-700 font-semibold mb-1">Title</label>
           <input
             type="text"
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             required
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="content" className="block text-gray-700">Content</label>
+        <div className="mb-5">
+          <label htmlFor="content" className="block text-gray-700 font-semibold mb-1">Content</label>
           <textarea
             id="content"
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-3 w-full border rounded-lg h-40 focus:outline-none focus:ring-2 focus:ring-blue-400"
             required
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="image" className="block text-gray-700">Image</label>
+        <div className="mb-5">
+          <label htmlFor="image" className="block text-gray-700 font-semibold mb-1">Image</label>
           <input
             type="file"
             id="image"
             accept="image/*"
             onChange={handleImageChange}
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
         </div>
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Create Post</button>
+        <button type="submit" className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300">
+          Create Post
+        </button>
       </form>
     </div>
   );

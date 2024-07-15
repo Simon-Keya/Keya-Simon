@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './styles/AdminDashboard.css'; // Keep the CSS file for basic styles
 
 interface User {
@@ -68,20 +68,20 @@ const AdminDashboard = () => {
   }, [searchActivity, activities]);
 
   return (
-    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-auto max-w-2xl">
-      <h2 className="text-xl font-bold mb-4 text-center">Admin Dashboard</h2>
-      <div className="mb-4">
-        <h3 className="text-lg font-semibold mb-2">Users</h3>
+    <div className="bg-white shadow-md rounded-lg p-8 mx-auto max-w-4xl mt-10">
+      <h2 className="text-3xl font-bold mb-6 text-center text-blue-800">Admin Dashboard</h2>
+      <div className="mb-8">
+        <h3 className="text-2xl font-semibold mb-4 text-teal-800">Users</h3>
         <input
           type="text"
           placeholder="Search users..."
-          className="mb-2 p-2 border rounded-md"
+          className="mb-4 p-2 border rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
           value={searchUser}
           onChange={(e) => setSearchUser(e.target.value)}
         />
-        <div className="overflow-x-auto rounded-md shadow">
+        <div className="overflow-x-auto rounded-md shadow-lg">
           <table className="w-full text-sm text-left table-auto">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
               <tr>
                 <th scope="col" className="py-3 px-6">
                   ID
@@ -94,33 +94,31 @@ const AdminDashboard = () => {
                 </th>
               </tr>
             </thead>
-<tbody>
-  {/* Loop through filtered users and display data in table rows */}
-  {filteredUsers.map((user) => (
-    <tr key={user.id} className="border-b border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
-      <td className="py-4 px-6">{user.id}</td>
-      <td className="py-4 px-6">{user.name}</td>
-      <td className="py-4 px-6">{user.role}</td>
-    </tr>
-  ))}
-</tbody>
-</table>
+            <tbody>
+              {filteredUsers.map((user) => (
+                <tr key={user.id} className="border-b border-gray-200 hover:bg-blue-200">
+                  <td className="py-4 px-6">{user.id}</td>
+                  <td className="py-4 px-6">{user.name}</td>
+                  <td className="py-4 px-6">{user.role}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 
-      {/* Similar implementation for Activities section */}
-      <div className="mb-4">
-        <h3 className="text-lg font-semibold mb-2">Activities</h3>
+      <div className="mb-8">
+        <h3 className="text-2xl font-semibold mb-4 text-teal-800">Activities</h3>
         <input
           type="text"
           placeholder="Search activities..."
-          className="mb-2 p-2 border rounded-md"
+          className="mb-4 p-2 border rounded-md w-full focus:outline-none focus:ring-2 focus:ring-teal-400"
           value={searchActivity}
           onChange={(e) => setSearchActivity(e.target.value)}
         />
-        <div className="overflow-x-auto rounded-md shadow">
+        <div className="overflow-x-auto rounded-md shadow-lg">
           <table className="w-full text-sm text-left table-auto">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
               <tr>
                 <th scope="col" className="py-3 px-6">
                   User
@@ -135,7 +133,7 @@ const AdminDashboard = () => {
             </thead>
             <tbody>
               {filteredActivities.map((activity) => (
-                <tr key={activity.id} className="border-b border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
+                <tr key={activity.id} className="border-b border-gray-200 hover:bg-teal-200">
                   <td className="py-4 px-6">{activity.user}</td>
                   <td className="py-4 px-6">{activity.action}</td>
                   <td className="py-4 px-6">{activity.timestamp}</td>
@@ -147,7 +145,7 @@ const AdminDashboard = () => {
       </div>
 
       <div>
-        <h3 className="text-lg font-semibold mb-2">Analytics</h3>
+        <h3 className="text-2xl font-semibold mb-4 text-teal-800">Analytics</h3>
         <p>Total Users: {filteredUsers.length}</p>
         <p>Total Activities: {filteredActivities.length}</p>
       </div>
