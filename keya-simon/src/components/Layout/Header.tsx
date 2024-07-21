@@ -5,6 +5,7 @@ import '../styles/Layout/Header.css';
 const Header = () => {
   const [isResourcesDropdownOpen, setIsResourcesDropdownOpen] = useState(false);
   const [isCategoriesDropdownOpen, setIsCategoriesDropdownOpen] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false); // State for mobile menu
   const resourcesDropdownRef = useRef<HTMLDivElement>(null);
   const categoriesDropdownRef = useRef<HTMLDivElement>(null);
 
@@ -33,6 +34,10 @@ const Header = () => {
     };
   }, []);
 
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
   return (
     <header>
       <div className="header-container">
@@ -41,7 +46,11 @@ const Header = () => {
           <span>Simon Keya</span>
         </Link>
 
-        <nav className="header-nav">
+        <button className="menu-toggle" onClick={toggleNav}>
+          &#9776; {/* Unicode character for hamburger icon */}
+        </button>
+
+        <nav className={`header-nav ${isNavOpen ? 'active' : ''}`}>
           <div className="center-links">
             <Link to="/">Home</Link>
             <Link to="/blog">Blog</Link>

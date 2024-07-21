@@ -1,5 +1,4 @@
-/* Home.css */
-
+/* Base styles */
 .home-container {
   background-size: cover;
   background-position: center;
@@ -203,4 +202,61 @@
 .button-link {
   margin-right: 1rem;
   margin-bottom: 0.5rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .home-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .quote p, .about-section p, .owner-section p, .latest-posts-section .post-link {
+    font-size: 1rem;
+  }
+
+  .newsletter-input, .newsletter-button {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .quote p, .about-section p, .owner-section p, .latest-posts-section .post-link {
+    font-size: 0.875rem;
+  }
+
+  .newsletter-section {
+    padding: 1rem;
+  }
+
+  .newsletter-input, .newsletter-button {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .image-carousel .carousel-image {
+    width: 100%;
+  }
+
+  .image-title {
+    width: 100%;
+  }
 }
