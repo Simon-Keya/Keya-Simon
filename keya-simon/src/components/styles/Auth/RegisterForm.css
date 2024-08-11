@@ -1,221 +1,31 @@
-/* Base styles */
-.max-w-md {
-    max-width: 70rem;
-}
+/* RegisterForm.css */
 
-.mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.mt-8 {
-    margin-top: 2rem;
-}
-
-.p-8 {
-    padding: 2rem;
-}
-
-.bg-white {
-    background-color: #404ed1;
-}
-
-.rounded-lg {
-    border-radius: 0.5rem;
-}
-
-.shadow-md {
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-/* Register form styles */
-.text-2xl {
-    font-size: 1.5rem;
-}
-
-.font-semibold {
-    font-weight: 600;
-}
-
-.mb-4 {
-    margin-bottom: 1rem;
-}
-
-.text-red-500 {
-    color: #dc3545;
-}
-
-/* Register button styles */
-.w-full {
-    width: 100%;
-}
-
-.bg-blue-500 {
-    background-color: #4285f4;
-}
-
-.text-white {
-    color: #fff;
-}
-
-.py-2 {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-
-.px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-.rounded-md {
-    border-radius: 0.5rem;
-}
-
-.hover\:bg-blue-600:hover {
-    background-color: #3872e3;
-}
-
-/* Checkbox styles */
-.flex {
-    display: flex;
-}
-
-.items-center {
-    align-items: center;
-}
-
-.mr-4 {
-    margin-right: 1rem;
-}
-
-.text-gray-700 {
-    color: #37474F;
-}
-
-/* Forgot password link styles */
-.underline {
-    text-decoration: underline;
-}
-
-/* Google login icon styles */
-.h-6 {
-    height: 1.5rem;
-}
-
-.w-6 {
-    width: 1.5rem;
-}
-
-.fill-current {
-    fill: currentColor;
-}
-
-.flex.mt-4 {
-    margin-top: 1rem;
-}
-
-.flex.mt-4.justify-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.text-gray-700.mr-2 {
-    color: #71717a;
-    margin-right: 20px;
-    margin-left: 90px;
-}
-
-.text-gray-700.mr-2::before {
-    margin-right: 10px;
-}
-
-button.h-6.w-6 {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    margin-left: 8px;
-}
-
-button.h-6.w-6 img {
-    width: 100%;
-    height: 100%;
-}
-
-/* Media Queries */
-@media (max-width: 1024px) {
-    .max-w-md {
-        max-width: 60rem;
-    }
-
-    .p-8 {
-        padding: 1.5rem;
-    }
-
-    .text-2xl {
-        font-size: 1.25rem;
-    }
-
-    .text-gray-700.mr-2 {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-}
-
-@media (max-width: 768px) {
-    .max-w-md {
-        max-width: 50rem;
-    }
-
-    .p-8 {
-        padding: 1rem;
-    }
-
-    .text-2xl {
-        font-size: 1.125rem;
-    }
-
-    .text-gray-700.mr-2 {
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    .flex.mt-4.justify-center {
-        flex-direction: column;
-    }
-
-    button.h-6.w-6 {
-        margin-left: 0;
-        margin-top: 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .max-w-md {
-        max-width: 90%;
-    }
-
-    .p-8 {
-        padding: 0.5rem;
-    }
-
-    .text-2xl {
-        font-size: 1rem;
-    }
-
-    .text-gray-700.mr-2 {
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    .flex.mt-4.justify-center {
-        flex-direction: column;
-    }
-
-    button.h-6.w-6 {
-        margin-left: 0;
-        margin-top: 0.5rem;
-    }
-}
+input[type="checkbox"] {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    outline: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  input[type="checkbox"]:checked {
+    background-color: #4c51bf; /* Tailwind's indigo-600 */
+    border-color: #4c51bf;
+  }
+  
+  input[type="checkbox"]:checked::after {
+    content: '';
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 0.125rem;
+  }
+  
+  button:hover {
+    filter: brightness(1.1);
+  }
+  

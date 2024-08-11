@@ -6,7 +6,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; 
+    z-index: 1000;
 }
 
 /* Container for center alignment and spacing */
@@ -154,20 +154,13 @@ body {
 
 /* Media Queries */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
     .header-container {
         flex-direction: column;
         padding: 0.5rem;
-        position: relative; /* Ensure proper positioning for the menu */
-    }
-
-    .header-nav {
-        flex-direction: column;
-        gap: 0.5rem; /* Adjust space between links */
-        display: none; /* Hide navigation by default */
-    }
-
-    .header-nav.active {
-        display: flex; /* Show navigation when active */
     }
 
     .header-logo img {
@@ -177,6 +170,16 @@ body {
 
     .header-logo span {
         font-size: 1.25rem; /* Adjust font size as needed */
+    }
+
+    .header-nav {
+        flex-direction: column;
+        gap: 0.5rem; /* Adjust space between links */
+        display: none; /* Hide by default */
+    }
+
+    .header-nav.active {
+        display: flex; /* Show when active */
     }
 
     .header-nav .center-links {
@@ -189,55 +192,10 @@ body {
     .header-nav .auth-links {
         gap: 0.5rem; /* Adjust space between auth links */
     }
-
-    /* Menu Toggle Button */
-    .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: #154072;
-        border: none;
-        color: white;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-        font-size: 1.5rem;
-        border-radius: 5px;
-    }
-
-    .menu-toggle:hover {
-        background-color: #0f2a48; /* Slightly darker blue on hover */
-    }
 }
 
-@media (max-width: 480px) {
-    .header-logo img {
-        height: 2rem; /* Adjust logo height as needed */
-        margin-right: 0.25rem; /* Adjust spacing between logo and title */
-    }
-
-    .header-logo span {
-        font-size: 1rem; /* Adjust font size as needed */
-    }
-
-    .header-nav {
-        flex-direction: column;
-        gap: 0.25rem; /* Adjust space between links */
-    }
-
-    .header-nav .center-links {
-        flex-direction: column;
-        gap: 0.5rem; /* Space between Home, Blog, Categories, and Resources links */
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .header-nav .auth-links {
-        gap: 0.25rem; /* Adjust space between auth links */
-    }
-
-    .login-button,
-    .signup-button {
-        padding: 0.25rem 0.5rem; /* Adjust button padding */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none; /* Hide on larger screens */
     }
 }
